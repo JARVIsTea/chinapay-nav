@@ -1,4 +1,5 @@
 import { FileText, SearchCheck, Handshake, Banknote, FileBadge } from "lucide-react";
+import { PaymentFlow } from "./PaymentFlow";
 
 const steps = [
   { icon: FileText, title: "Вы отправляете инвойс", text: "Передаёте нам инвойс от поставщика и краткое описание сделки." },
@@ -26,6 +27,10 @@ export function HowItWorks() {
           <p className="mt-4 text-lg text-white/70 text-pretty">
             Пять прозрачных шагов от получения инвойса до закрывающих документов.
           </p>
+        </div>
+
+        <div className="mt-14">
+          <PaymentFlow />
         </div>
 
         <div className="relative mt-16">
