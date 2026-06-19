@@ -35,7 +35,6 @@ export function Reveal({
   direction = "up",
   delay = 0,
   className,
-  as: As = "div",
   amount = 0.2,
   once = true,
   ...rest
@@ -44,14 +43,12 @@ export function Reveal({
   direction?: Direction;
   delay?: number;
   className?: string;
-  as?: keyof typeof motion;
   amount?: number;
   once?: boolean;
 } & MotionProps) {
-  const Comp = motion[As] as typeof motion.div;
   const v = variantsFor(direction);
   return (
-    <Comp
+    <motion.div
       className={className}
       variants={v}
       initial="hidden"
@@ -61,7 +58,7 @@ export function Reveal({
       {...rest}
     >
       {children}
-    </Comp>
+    </motion.div>
   );
 }
 
