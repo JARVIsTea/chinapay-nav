@@ -172,5 +172,3 @@ function DocumentMock() {
     </motion.div>
   );
 }
-
-import { FileCheck2 as _ } from "lucide-react";
