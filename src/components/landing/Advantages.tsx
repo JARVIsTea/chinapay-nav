@@ -56,19 +56,23 @@ export function Advantages() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map(({ icon: Icon, title, text }, i) => (
             <div
               key={title}
-              className="reveal group relative overflow-hidden rounded-2xl border border-border bg-card p-7 shadow-elev-1 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/15 hover:shadow-elev-2"
+              className="reveal group relative overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-elev-1 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/15 hover:shadow-elev-2"
               style={{ transitionDelay: `${i * 40}ms` }}
             >
               <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: "var(--gradient-hero-glow)" }} />
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-navy text-(--color-emerald) shadow-elev-2">
-                <Icon className="h-5 w-5" />
-              </span>
-              <h3 className="mt-5 font-display text-lg font-semibold text-foreground">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
+              <div className="flex items-start gap-4">
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-display text-base font-semibold text-foreground">{title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{text}</p>
+                </div>
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-navy text-(--color-emerald) shadow-elev-2">
+                  <Icon className="h-5 w-5" />
+                </span>
+              </div>
             </div>
           ))}
         </div>
