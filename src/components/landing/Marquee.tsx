@@ -29,7 +29,7 @@ export function Marquee() {
         className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-black to-transparent"
       />
       <motion.div
-        className="flex w-max gap-8 py-2.5"
+        className="flex w-max gap-8"
         animate={reduce ? undefined : { x: ["0%", "-50%"] }}
         transition={{ duration: 38, ease: "linear", repeat: Infinity }}
       >
