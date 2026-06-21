@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/landing/Navbar";
+import { Marquee } from "@/components/landing/Marquee";
 import { Hero } from "@/components/landing/Hero";
 import { Advantages } from "@/components/landing/Advantages";
 import { HowItWorks } from "@/components/landing/HowItWorks";
