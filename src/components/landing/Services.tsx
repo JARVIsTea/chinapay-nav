@@ -49,19 +49,21 @@ export function Services() {
                   ...(featured ? { backgroundImage: "var(--gradient-navy)" } : {}),
                 }}
               >
-                <div className="flex items-start justify-between">
+                <div className="flex items-start gap-4">
                   <span
-                    className={`flex h-12 w-12 items-center justify-center rounded-xl ${
+                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${
                       featured ? "bg-white/10 text-(--color-emerald)" : "bg-gradient-navy text-(--color-emerald) shadow-elev-2"
                     }`}
                   >
                     <Icon className="h-5 w-5" />
                   </span>
-                  <ArrowUpRight className={`h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${featured ? "text-white/60" : "text-muted-foreground"}`} />
-                </div>
-                <div>
-                  <h3 className={`font-display text-xl font-semibold ${featured ? "text-white" : "text-foreground"}`}>{title}</h3>
-                  <p className={`mt-2 text-sm leading-relaxed ${featured ? "text-white/70" : "text-muted-foreground"}`}>{text}</p>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className={`font-display text-base font-semibold ${featured ? "text-white" : "text-foreground"}`}>{title}</h3>
+                      <ArrowUpRight className={`h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${featured ? "text-white/60" : "text-muted-foreground"}`} />
+                    </div>
+                    <p className={`mt-1.5 text-sm leading-relaxed ${featured ? "text-white/70" : "text-muted-foreground"}`}>{text}</p>
+                  </div>
                 </div>
               </article>
             );
