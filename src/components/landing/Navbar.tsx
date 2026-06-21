@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
 
 const links = [
   { href: "#advantages", label: "Преимущества" },
