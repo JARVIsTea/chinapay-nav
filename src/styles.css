@@ -251,3 +251,71 @@
     .animate-rise, .animate-float { animation: none !important; }
   }
 }
+
+/* ===== Aurora ambient animation ===== */
+.aurora-blob {
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.22;
+  will-change: transform;
+}
+.aurora-a {
+  background: radial-gradient(closest-side, oklch(0.72 0.17 158 / 0.55), transparent 70%);
+  top: -20vmax;
+  left: -15vmax;
+  animation: aurora-drift-a 28s ease-in-out infinite alternate;
+}
+.aurora-b {
+  background: radial-gradient(closest-side, oklch(0.66 0.18 245 / 0.45), transparent 70%);
+  top: 30vmax;
+  right: -20vmax;
+  animation: aurora-drift-b 34s ease-in-out infinite alternate;
+}
+.aurora-c {
+  background: radial-gradient(closest-side, oklch(0.82 0.14 80 / 0.35), transparent 70%);
+  bottom: -25vmax;
+  left: 20vmax;
+  animation: aurora-drift-c 42s ease-in-out infinite alternate;
+}
+@keyframes aurora-drift-a {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  100% { transform: translate3d(8vmax, 6vmax, 0) scale(1.15); }
+}
+@keyframes aurora-drift-b {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  100% { transform: translate3d(-10vmax, -4vmax, 0) scale(1.1); }
+}
+@keyframes aurora-drift-c {
+  0%   { transform: translate3d(0,0,0) scale(0.95); }
+  100% { transform: translate3d(6vmax, -8vmax, 0) scale(1.2); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob { animation: none; }
+}
+
+/* ===== Subtle headline shimmer (apply via .shimmer-text) ===== */
+.shimmer-text {
+  background: linear-gradient(
+    100deg,
+    rgba(255,255,255,0.85) 0%,
+    rgba(255,255,255,0.85) 40%,
+    rgba(255,255,255,1) 50%,
+    rgba(255,255,255,0.85) 60%,
+    rgba(255,255,255,0.85) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer-slide 6s linear infinite;
+}
+@keyframes shimmer-slide {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shimmer-text { animation: none; }
+}

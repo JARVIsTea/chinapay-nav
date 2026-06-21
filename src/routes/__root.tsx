@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "@/components/ui/sonner";
+import { Aurora } from "@/components/landing/Aurora";
 
 function NotFoundComponent() {
   return (
@@ -80,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#0a0a0c" },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "PayChina" },
+      { property: "og:site_name", content: "Pay to China .ru" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -118,7 +119,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <Aurora />
+      <div className="relative z-[2]">
+        <Outlet />
+      </div>
       <Toaster position="top-center" richColors />
     </QueryClientProvider>
   );

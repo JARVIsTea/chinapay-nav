@@ -33,7 +33,7 @@ export function Hero() {
           {...fade(0)}
           className="text-[13px] font-semibold uppercase tracking-[0.18em] text-(--color-emerald)"
         >
-          PayChina · B2B
+          Pay to China .ru · B2B
         </motion.span>
 
         <motion.h1

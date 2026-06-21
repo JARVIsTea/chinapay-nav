@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 const nodes = [
   { code: "RU", label: "Россия", sub: "₽ рубли", tone: "sky" as const },
-  { code: "PC", label: "PayChina", sub: "агент · нерезидент", tone: "emerald" as const },
+  { code: "P2C", label: "Pay to China .ru", sub: "агент · нерезидент", tone: "emerald" as const },
   { code: "CN", label: "Китай", sub: "¥ юани", tone: "amber" as const },
 ];
 
