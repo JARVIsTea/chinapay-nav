@@ -97,7 +97,7 @@ export function Acceptance() {
                 style={{ background: "var(--gradient-emerald)" }}
               />
               <div className="relative">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[--color-emerald]/12 text-[--color-emerald]">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-(--color-emerald)/12 text-(--color-emerald)">
                   <Icon className="h-5 w-5" />
                 </span>
                 <h3 className="mt-4 font-display text-lg font-semibold tracking-tight text-foreground">
@@ -135,7 +135,7 @@ function DocumentMock() {
             </div>
             <div className="font-display text-lg font-semibold">Инвойс №А-1024</div>
           </div>
-          <span className="rounded-full bg-[--color-emerald]/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-[--color-emerald]">
+          <span className="rounded-full bg-(--color-emerald)/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-(--color-emerald)">
             Готов
           </span>
         </div>
@@ -161,7 +161,7 @@ function DocumentMock() {
               transition={{ delay: 0.15 + i * 0.07, duration: 0.45 }}
               className="flex items-center gap-3 text-sm"
             >
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[--color-emerald]/15 text-[--color-emerald]">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-(--color-emerald)/15 text-(--color-emerald)">
                 <FileCheck2 className="h-3 w-3" strokeWidth={3} />
               </span>
               <span className="text-foreground/85">{d}</span>

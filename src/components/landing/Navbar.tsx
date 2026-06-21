@@ -79,7 +79,7 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex h-11 items-center justify-center rounded-full bg-[--color-emerald] text-sm font-semibold text-white"
+              className="mt-2 inline-flex h-11 items-center justify-center rounded-full bg-(--color-emerald) text-sm font-semibold text-white"
             >
               Оставить заявку
             </a>

@@ -8,9 +8,9 @@ export function TrustBlock() {
   return (
     <section className="relative py-24 lg:py-32">
       <div className="container-page">
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-navy p-10 text-[--color-mist] shadow-elev-3 md:p-16">
+        <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-navy p-10 text-(--color-mist) shadow-elev-3 md:p-16">
           <div className="pointer-events-none absolute inset-0 grid-bg opacity-40" />
-          <div className="pointer-events-none absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full bg-[--color-emerald]/30 blur-[140px]" />
+          <div className="pointer-events-none absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full bg-(--color-emerald)/30 blur-[140px]" />
           <div className="pointer-events-none absolute -left-32 -bottom-40 h-[420px] w-[420px] rounded-full bg-white/10 blur-[140px]" />
 
           <div className="relative grid gap-12 lg:grid-cols-12 lg:gap-16">
@@ -35,7 +35,7 @@ export function TrustBlock() {
                     key={s.label}
                     className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur"
                   >
-                    <dt className="bg-gradient-to-br from-[--color-emerald-soft] to-[--color-emerald] bg-clip-text font-display text-4xl font-bold text-transparent md:text-5xl">
+                    <dt className="bg-gradient-to-br from-(--color-emerald-soft) to-(--color-emerald) bg-clip-text font-display text-4xl font-bold text-transparent md:text-5xl">
                       {s.value}
                     </dt>
                     <dd className="mt-2 text-sm leading-snug text-white/70">{s.label}</dd>
