@@ -65,13 +65,13 @@ export function Advantages() {
             >
               <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: "var(--gradient-hero-glow)" }} />
               <div className="flex items-start gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-navy text-(--color-emerald) shadow-elev-2">
+                  <Icon className="h-5 w-5" />
+                </span>
                 <div className="min-w-0 flex-1">
                   <h3 className="font-display text-base font-semibold text-foreground">{title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{text}</p>
                 </div>
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-navy text-(--color-emerald) shadow-elev-2">
-                  <Icon className="h-5 w-5" />
-                </span>
               </div>
             </div>
           ))}
