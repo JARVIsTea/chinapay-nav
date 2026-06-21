@@ -1,15 +1,17 @@
 "use client";
 import { motion, useReducedMotion } from "motion/react";
-import { Ship, Banknote, FileCheck2, ShieldCheck, Clock, Globe2, TrendingUp } from "lucide-react";
+import { Ship, Banknote, FileCheck2, ShieldCheck, Clock, Globe2, TrendingUp, Smartphone, MessageCircle } from "lucide-react";
 
 const items = [
   { icon: Banknote, text: "Курс ¥ → ₽: 11.45 + 0.7%" },
   { icon: Clock, text: "Зачисление 1–2 рабочих дня" },
+  { icon: Smartphone, text: "Переводы на Alipay" },
+  { icon: MessageCircle, text: "Переводы на WeChat Pay" },
   { icon: Ship, text: "CNY · USD · AED · HKD" },
   { icon: FileCheck2, text: "Полный пакет документов" },
   { icon: ShieldCheck, text: "Валютный контроль под ключ" },
   { icon: Globe2, text: "Поставщики по всему Китаю" },
-  { icon: TrendingUp, text: "Объём сделок от 100 000 ₽" },
+  { icon: TrendingUp, text: "Сделки от 100 000 ₽" },
 ];
 
 export function Marquee() {
