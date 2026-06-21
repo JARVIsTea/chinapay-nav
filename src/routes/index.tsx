@@ -49,7 +49,7 @@ export const Route = createFileRoute("/")({
           url: "/",
           contactPoint: {
             "@type": "ContactPoint",
-            telephone: "+7-800-500-50-50",
+            telephone: "+7-996-845-70-51",
             contactType: "sales",
             email: "hello@paychina.ru",
             areaServed: "RU",
