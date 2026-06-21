@@ -127,6 +127,21 @@ export function Cases() {
                   </div>
                 </dl>
 
+                <div className="mt-5 flex items-center justify-between rounded-xl border border-(--color-emerald)/25 bg-(--color-emerald)/[0.06] px-4 py-3">
+                  <div>
+                    <div className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+                      Курс операции
+                    </div>
+                    <div className="mt-0.5 font-mono text-sm font-semibold text-foreground">
+                      {c.rate.replace(" · +0.7%", "")}
+                    </div>
+                  </div>
+                  <span className="rounded-full bg-(--color-emerald)/15 px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-(--color-emerald)">
+                    +0.7%
+                  </span>
+                </div>
+
+
                 <ul className="mt-6 grid grid-cols-3 gap-3 border-t border-border pt-6">
                   {c.metrics.map(({ value, label, icon: Icon }) => (
                     <li key={label} className="text-left">
