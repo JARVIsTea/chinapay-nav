@@ -5,6 +5,7 @@ type Case = {
   title: string;
   challenge: string;
   solution: string;
+  rate: string;
   metrics: { value: string; label: string; icon: typeof TrendingDown }[];
 };
 
