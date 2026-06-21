@@ -51,7 +51,7 @@ export const Route = createFileRoute("/")({
             "@type": "ContactPoint",
             telephone: "+7-996-845-70-51",
             contactType: "sales",
-            email: "hello@paychina.ru",
+            email: "fedorov1991kzn@gmail.com",
             areaServed: "RU",
             availableLanguage: ["Russian"],
           },
