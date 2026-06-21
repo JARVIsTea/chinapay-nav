@@ -73,27 +73,13 @@ export function Hero() {
           </a>
         </motion.div>
 
-        {/* Product moment: currency orb */}
         <motion.div
-          initial={{ opacity: 0, y: 60, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.1, ease: [0.2, 0.7, 0.2, 1], delay: 0.2 }}
-          className="relative mt-20 w-full max-w-[1080px]"
+          {...fade(0.3)}
+          className="mt-16 grid w-full max-w-3xl grid-cols-3 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] text-center backdrop-blur-xl"
         >
-          <div className="absolute -inset-x-20 -top-20 bottom-0 -z-10 rounded-[60px] bg-[radial-gradient(60%_50%_at_50%_30%,oklch(0.62_0.18_250/0.35),transparent_70%)] blur-2xl" />
-          <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl md:rounded-[40px] md:p-12">
-            <div className="grid items-center gap-10 md:grid-cols-3">
-              <CurrencyOrb symbol="₽" label="Россия" sub="Рубли" hue="white" />
-              <FlowBar />
-              <CurrencyOrb symbol="¥" label="Китай" sub="Юани" hue="blue" />
-            </div>
-
-            <div className="mt-10 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 text-center">
-              <Stat value="1–3 дня" label="срок зачисления" />
-              <Stat value="100%" label="закрывающих документов" />
-              <Stat value="24/7" label="персональный менеджер" />
-            </div>
-          </div>
+          <Stat value="1–3 дня" label="срок зачисления" />
+          <Stat value="100%" label="закрывающих документов" />
+          <Stat value="24/7" label="персональный менеджер" />
         </motion.div>
       </div>
     </section>
