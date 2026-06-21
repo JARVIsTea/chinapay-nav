@@ -13,7 +13,8 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate overflow-hidden bg-[--color-navy-deep] pt-28 text-[--color-mist] md:pt-32"
+      className="relative isolate overflow-hidden pt-28 text-white md:pt-32"
+      style={{ background: "var(--color-navy-deep)" }}
     >
       {/* ambient glow */}
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[820px] bg-hero-glow opacity-90" />
