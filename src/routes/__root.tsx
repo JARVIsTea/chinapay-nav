@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "@/components/ui/sonner";
 import { Aurora } from "@/components/landing/Aurora";
+import { ExitIntent } from "@/components/landing/ExitIntent";
 
 function NotFoundComponent() {
   return (
