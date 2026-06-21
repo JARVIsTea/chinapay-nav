@@ -46,15 +46,15 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@paychina.ru" className="flex items-center gap-2.5 text-white/85 hover:text-(--color-emerald-soft)">
+                <a href="mailto:fedorov1991kzn@gmail.com" className="flex items-center gap-2.5 text-white/85 hover:text-(--color-emerald-soft)">
                   <Mail className="h-4 w-4 text-(--color-emerald)" />
-                  hello@paychina.ru
+                  fedorov1991kzn@gmail.com
                 </a>
               </li>
               <li>
-                <a href="https://t.me/paychina" className="flex items-center gap-2.5 text-white/85 hover:text-(--color-emerald-soft)">
+                <a href="https://t.me/sup_port_best" className="flex items-center gap-2.5 text-white/85 hover:text-(--color-emerald-soft)">
                   <MessageCircle className="h-4 w-4 text-(--color-emerald)" />
-                  @paychina
+                  @sup_port_best
                 </a>
               </li>
             </ul>

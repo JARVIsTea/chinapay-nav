@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { z } from "zod";
 import { ArrowRight, CheckCircle2, Mail, MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,41 +16,88 @@ const schema = z.object({
 });
 
 type FormState = z.infer<typeof schema>;
-type Errors = Partial<Record<keyof FormState, string>>;
+type Errors = Partial<Record<keyof FormState, string>> & { captcha?: string };
 
 const initial: FormState = { name: "", phone: "", company: "", amount: "", comment: "" };
+
+const TG_USERNAME = "sup_port_best";
+const EMAIL = "fedorov1991kzn@gmail.com";
+
+function makeCaptcha() {
+  const a = Math.floor(Math.random() * 8) + 2;
+  const b = Math.floor(Math.random() * 8) + 2;
+  return { a, b, answer: a + b };
+}
 
 export function LeadForm() {
   const [data, setData] = useState<FormState>(initial);
   const [errors, setErrors] = useState<Errors>({});
   const [submitted, setSubmitted] = useState(false);
   const [pending, setPending] = useState(false);
+  const [captcha, setCaptcha] = useState(() => makeCaptcha());
+  const [captchaInput, setCaptchaInput] = useState("");
 
   const update = (k: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setData((d) => ({ ...d, [k]: e.target.value }));
     if (errors[k]) setErrors((er) => ({ ...er, [k]: undefined }));
   };
 
+  const tgMessage = useMemo(
+    () =>
+      [
+        "Новая заявка с Pay to China",
+        `Имя: ${data.name}`,
+        `Телефон: ${data.phone}`,
+        `Компания: ${data.company}`,
+        data.amount ? `Сумма: ${data.amount}` : null,
+        data.comment ? `Комментарий: ${data.comment}` : null,
+      ]
+        .filter(Boolean)
+        .join("\n"),
+    [data],
+  );
+
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = schema.safeParse(data);
+    const fieldErrors: Errors = {};
     if (!result.success) {
-      const fieldErrors: Errors = {};
       for (const issue of result.error.issues) {
         const key = issue.path[0] as keyof FormState;
         if (!fieldErrors[key]) fieldErrors[key] = issue.message;
       }
+    }
+    if (Number(captchaInput) !== captcha.answer) {
+      fieldErrors.captcha = "Неверный ответ";
+    }
+    if (Object.keys(fieldErrors).length) {
       setErrors(fieldErrors);
       toast.error("Пожалуйста, проверьте поля формы");
       return;
     }
     setPending(true);
-    // Simulate request — wire to backend later if needed.
-    await new Promise((r) => setTimeout(r, 700));
+
+    // Отправляем заявку напрямую в Telegram: открываем чат с менеджером
+    // с предзаполненным сообщением, а также дублируем на e-mail.
+    const tgUrl = `https://t.me/${TG_USERNAME}?text=${encodeURIComponent(tgMessage)}`;
+    const mailUrl = `mailto:${EMAIL}?subject=${encodeURIComponent("Заявка с сайта Pay to China")}&body=${encodeURIComponent(tgMessage)}`;
+    try {
+      window.open(tgUrl, "_blank", "noopener,noreferrer");
+      // Небольшая задержка, чтобы браузер не схлопнул второе действие
+      setTimeout(() => {
+        window.location.href = mailUrl;
+      }, 300);
+    } catch {
+      /* ignore */
+    }
+
+    await new Promise((r) => setTimeout(r, 400));
     setPending(false);
     setSubmitted(true);
-    toast.success("Заявка отправлена. Мы свяжемся с вами в ближайшее время.");
+    toast.success("Заявка отправлена в Telegram менеджеру");
     setData(initial);
+    setCaptcha(makeCaptcha());
+    setCaptchaInput("");
   };
 
   return (
@@ -92,8 +139,8 @@ export function LeadForm() {
                     </span>
                     <div>
                       <div className="text-xs uppercase tracking-widest text-white/50">Email</div>
-                      <a href="mailto:hello@paychina.ru" className="font-semibold text-white hover:text-(--color-emerald-soft)">
-                        hello@paychina.ru
+                      <a href={`mailto:${EMAIL}`} className="font-semibold text-white hover:text-(--color-emerald-soft)">
+                        {EMAIL}
                       </a>
                     </div>
                   </li>
@@ -103,8 +150,8 @@ export function LeadForm() {
                     </span>
                     <div>
                       <div className="text-xs uppercase tracking-widest text-white/50">Telegram</div>
-                      <a href="https://t.me/paychina" className="font-semibold text-white hover:text-(--color-emerald-soft)">
-                        @paychina
+                      <a href={`https://t.me/${TG_USERNAME}`} className="font-semibold text-white hover:text-(--color-emerald-soft)">
+                        @{TG_USERNAME}
                       </a>
                     </div>
                   </li>
@@ -121,7 +168,7 @@ export function LeadForm() {
                   </span>
                   <h3 className="mt-6 font-display text-2xl font-bold text-foreground">Заявка отправлена</h3>
                   <p className="mt-2 max-w-md text-muted-foreground">
-                    Спасибо! Персональный менеджер свяжется с вами в ближайшее рабочее время.
+                    Мы открыли Telegram-чат с менеджером — отправьте сообщение, и мы сразу его получим.
                   </p>
                   <Button variant="outline" className="mt-6" onClick={() => setSubmitted(false)}>
                     Отправить ещё одну заявку
@@ -154,6 +201,34 @@ export function LeadForm() {
                   </div>
 
                   <div className="sm:col-span-2">
+                    <Field id="captcha" label={`Подтвердите, что вы не робот: сколько будет ${captcha.a} + ${captcha.b}?`} error={errors.captcha}>
+                      <div className="flex items-center gap-3">
+                        <Input
+                          id="captcha"
+                          inputMode="numeric"
+                          placeholder="Ответ"
+                          value={captchaInput}
+                          onChange={(e) => {
+                            setCaptchaInput(e.target.value);
+                            if (errors.captcha) setErrors((er) => ({ ...er, captcha: undefined }));
+                          }}
+                          className="max-w-[160px]"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setCaptcha(makeCaptcha());
+                            setCaptchaInput("");
+                          }}
+                          className="text-xs text-muted-foreground hover:text-foreground underline underline-offset-4"
+                        >
+                          Обновить
+                        </button>
+                      </div>
+                    </Field>
+                  </div>
+
+                  <div className="sm:col-span-2">
                     <Button
                       type="submit"
                       disabled={pending}
@@ -161,13 +236,13 @@ export function LeadForm() {
                     >
                       {pending ? "Отправляем..." : (
                         <>
-                          Получить консультацию
+                          Отправить в Telegram
                           <ArrowRight className="ml-1 h-4 w-4" />
                         </>
                       )}
                     </Button>
                     <p className="mt-3 text-xs text-muted-foreground">
-                      Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.
+                      Заявка уйдёт напрямую менеджеру в Telegram (@{TG_USERNAME}). Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.
                     </p>
                   </div>
                 </form>
