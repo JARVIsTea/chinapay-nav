@@ -5,6 +5,7 @@ type Case = {
   title: string;
   challenge: string;
   solution: string;
+  rate: string;
   metrics: { value: string; label: string; icon: typeof TrendingDown }[];
 };
 
@@ -14,6 +15,7 @@ const cases: Case[] = [
     title: "Импортёр электроники, 28 поставщиков в Шэньчжэне",
     challenge:
       "Зависшие платежи в банке, срыв сроков отгрузки, скрытые комиссии посредников.",
+    rate: "1 ¥ = 12.50 ₽ · +0.7%",
     solution:
       "Перевели расчёты на сопровождение PayChina с фиксированной комиссией и поэтапными выплатами.",
     metrics: [
@@ -27,6 +29,7 @@ const cases: Case[] = [
     title: "Производитель оборудования, контракты на ¥4–12 млн",
     challenge:
       "Крупные авансы поставщикам, валютный риск, требования банка к комплекту документов.",
+    rate: "1 ¥ = 12.65 ₽ · +0.7%",
     solution:
       "Дробление платежа на 3 транша, фиксация курса на каждом этапе, полное досье на сделку.",
     metrics: [
@@ -40,6 +43,7 @@ const cases: Case[] = [
     title: "Торговый дом, 60+ платежей в месяц",
     challenge:
       "Высокая нагрузка на бухгалтерию, разрозненные платежи, отсутствие единой отчётности.",
+    rate: "1 ¥ = 12.55 ₽ · +0.7%",
     solution:
       "Личный кабинет со статусами по каждому инвойсу и единый пакет документов в конце месяца.",
     metrics: [
@@ -53,6 +57,7 @@ const cases: Case[] = [
     title: "Розничная сеть одежды, сезонные закупки",
     challenge:
       "Пиковые нагрузки на закупки, давление сроков коллекции, штрафы за просрочку оплаты фабрикам.",
+    rate: "1 ¥ = 12.70 ₽ · +0.7%",
     solution:
       "Приоритетная очередь платежей в сезон, резерв юаней и круглосуточная поддержка менеджера.",
     metrics: [
@@ -121,6 +126,21 @@ export function Cases() {
                     <dd className="mt-1 text-foreground/85">{c.solution}</dd>
                   </div>
                 </dl>
+
+                <div className="mt-5 flex items-center justify-between rounded-xl border border-(--color-emerald)/25 bg-(--color-emerald)/[0.06] px-4 py-3">
+                  <div>
+                    <div className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+                      Курс операции
+                    </div>
+                    <div className="mt-0.5 font-mono text-sm font-semibold text-foreground">
+                      {c.rate.replace(" · +0.7%", "")}
+                    </div>
+                  </div>
+                  <span className="rounded-full bg-(--color-emerald)/15 px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-(--color-emerald)">
+                    +0.7%
+                  </span>
+                </div>
+
 
                 <ul className="mt-6 grid grid-cols-3 gap-3 border-t border-border pt-6">
                   {c.metrics.map(({ value, label, icon: Icon }) => (
