@@ -16,33 +16,33 @@ import { useRef, useState } from "react";
 const items = [
   {
     icon: Building2,
-    title: "Расчётные счета компании в РФ",
-    text: "Принимаем оплату по реквизитам российского юрлица — без посредников и наличных переводов.",
+    title: "Счета компании в РФ",
+    text: "Оплата по реквизитам российского юрлица.",
   },
   {
     icon: Landmark,
-    title: "Нерезидентские счета для расчётов",
-    text: "Используем собственные счета в банках-партнёрах для последующей оплаты поставщику в Китае.",
+    title: "Нерезидентские счета",
+    text: "Свои счета в банках-партнёрах для расчётов с КНР.",
   },
   {
     icon: FileCheck2,
     title: "Полный пакет документов",
-    text: "Договор, счёт, акт, инвойс, SWIFT-подтверждение и закрывающие документы — для бухгалтерии и валютного контроля.",
+    text: "Договор, счёт, акт, инвойс, SWIFT и закрывающие.",
   },
   {
     icon: Receipt,
     title: "НДС и налоговый учёт",
-    text: "Документы соответствуют требованиям ФНС и подходят для учёта затрат, возмещения НДС и таможенного оформления.",
+    text: "Под требования ФНС, для учёта затрат и таможни.",
   },
   {
     icon: ScrollText,
-    title: "Сопровождение валютного контроля",
-    text: "Помогаем поставить контракт на учёт, формируем СВО, СПД и работаем с банком в режиме одного окна.",
+    title: "Валютный контроль",
+    text: "Постановка контракта на учёт, СВО и СПД.",
   },
   {
     icon: ShieldCheck,
-    title: "Договорные гарантии и SLA",
-    text: "Фиксированные сроки, чёткая ответственность сторон и прозрачные условия в договоре с Pay to China .ru.",
+    title: "Гарантии и SLA",
+    text: "Фиксированные сроки и ответственность в договоре.",
   },
 ];
 
@@ -122,29 +122,31 @@ export function Acceptance() {
           </Reveal>
         </div>
 
-        <StaggerGroup className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <StaggerGroup className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {items.map(({ icon: Icon, title, text }) => (
             <motion.article
               key={title}
               variants={itemVariants}
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 260, damping: 22 }}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-elev-1"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-elev-1"
             >
               <div
                 className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
                 style={{ background: "var(--gradient-emerald)" }}
               />
-              <div className="relative">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-(--color-emerald)/12 text-(--color-emerald)">
+              <div className="relative flex items-start gap-4">
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-display text-base font-semibold tracking-tight text-foreground">
+                    {title}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                    {text}
+                  </p>
+                </div>
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-(--color-emerald)/12 text-(--color-emerald)">
                   <Icon className="h-5 w-5" />
                 </span>
-                <h3 className="mt-4 font-display text-lg font-semibold tracking-tight text-foreground">
-                  {title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {text}
-                </p>
               </div>
             </motion.article>
           ))}
