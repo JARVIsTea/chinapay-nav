@@ -122,29 +122,31 @@ export function Acceptance() {
           </Reveal>
         </div>
 
-        <StaggerGroup className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <StaggerGroup className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {items.map(({ icon: Icon, title, text }) => (
             <motion.article
               key={title}
               variants={itemVariants}
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 260, damping: 22 }}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-elev-1"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-elev-1"
             >
               <div
                 className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
                 style={{ background: "var(--gradient-emerald)" }}
               />
-              <div className="relative">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-(--color-emerald)/12 text-(--color-emerald)">
+              <div className="relative flex items-start gap-4">
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-display text-base font-semibold tracking-tight text-foreground">
+                    {title}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                    {text}
+                  </p>
+                </div>
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-(--color-emerald)/12 text-(--color-emerald)">
                   <Icon className="h-5 w-5" />
                 </span>
-                <h3 className="mt-4 font-display text-lg font-semibold tracking-tight text-foreground">
-                  {title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {text}
-                </p>
               </div>
             </motion.article>
           ))}
