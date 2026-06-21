@@ -155,59 +155,144 @@ export function Acceptance() {
 }
 
 function DocumentMock() {
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const [active, setActive] = useState(0);
+
+  const scrollTo = (i: number) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const card = el.children[i] as HTMLElement | undefined;
+    if (card) el.scrollTo({ left: card.offsetLeft - el.offsetLeft, behavior: "smooth" });
+  };
+
+  const onScroll = () => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const idx = Math.round(el.scrollLeft / el.clientWidth);
+    if (idx !== active) setActive(idx);
+  };
+
   return (
-    <motion.div
-      initial={{ rotate: -1 }}
-      whileInView={{ rotate: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
-      transition={{ duration: 0.8, ease: [0.2, 0.7, 0.2, 1] }}
-      className="relative mx-auto max-w-md"
-    >
-      {/* Back card */}
-      <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border border-border bg-card/70 shadow-elev-1" />
-      {/* Front card */}
-      <div className="relative rounded-2xl border border-border bg-card p-6 shadow-elev-3">
-        <div className="flex items-center justify-between">
-          <div>
-            <div className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
-              Платёжный пакет
+    <div className="relative mx-auto max-w-md">
+      <div
+        ref={scrollerRef}
+        onScroll={onScroll}
+        className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {deals.map((d, i) => (
+          <motion.article
+            key={d.no}
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.5, delay: i * 0.05, ease: [0.2, 0.7, 0.2, 1] }}
+            className="relative w-full shrink-0 snap-center rounded-2xl border border-border bg-card p-6 shadow-elev-3"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+                  Платёжный пакет
+                </div>
+                <div className="font-display text-lg font-semibold">Инвойс №{d.no}</div>
+                <div className="mt-0.5 text-[11px] text-muted-foreground">{d.category}</div>
+              </div>
+              <StatusPill status={d.status} />
             </div>
-            <div className="font-display text-lg font-semibold">Инвойс №А-1024</div>
-          </div>
-          <span className="rounded-full bg-(--color-emerald)/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-(--color-emerald)">
-            Готов
-          </span>
-        </div>
 
-        <div className="mt-5 grid grid-cols-2 gap-3 rounded-xl border border-border bg-muted/40 p-4 text-sm">
-          <div>
-            <div className="text-xs text-muted-foreground">Сумма к оплате</div>
-            <div className="font-display text-base font-bold">2 480 000 ₽</div>
-          </div>
-          <div className="text-right">
-            <div className="text-xs text-muted-foreground">Поставщику</div>
-            <div className="font-display text-base font-bold">¥ 198 400</div>
-          </div>
-        </div>
+            <div className="mt-5 grid grid-cols-2 gap-3 rounded-xl border border-border bg-muted/40 p-4 text-sm">
+              <div>
+                <div className="text-xs text-muted-foreground">Сумма к оплате</div>
+                <div className="font-display text-base font-bold">{d.rub}</div>
+              </div>
+              <div className="text-right">
+                <div className="text-xs text-muted-foreground">Поставщику</div>
+                <div className="font-display text-base font-bold">{d.cny}</div>
+              </div>
+            </div>
 
-        <ul className="mt-5 space-y-2.5">
-          {docs.map((d, i) => (
-            <motion.li
-              key={d}
-              initial={{ opacity: 0, x: -8 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ delay: 0.15 + i * 0.07, duration: 0.45 }}
-              className="flex items-center gap-3 text-sm"
-            >
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-(--color-emerald)/15 text-(--color-emerald)">
-                <FileCheck2 className="h-3 w-3" strokeWidth={3} />
-              </span>
-              <span className="text-foreground/85">{d}</span>
-            </motion.li>
-          ))}
-        </ul>
+            <RateField rate={d.rate} />
+
+            <ul className="mt-4 space-y-2.5">
+              {docs.map((doc) => (
+                <li key={doc} className="flex items-center gap-3 text-sm">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-(--color-emerald)/15 text-(--color-emerald)">
+                    <FileCheck2 className="h-3 w-3" strokeWidth={3} />
+                  </span>
+                  <span className="text-foreground/85">{doc}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.article>
+        ))}
       </div>
-    </motion.div>
+
+      {/* Controls */}
+      <div className="mt-4 flex items-center justify-between">
+        <div className="flex items-center gap-1.5">
+          {deals.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              aria-label={`Сделка ${i + 1}`}
+              onClick={() => scrollTo(i)}
+              className={`h-1.5 rounded-full transition-all ${
+                i === active ? "w-6 bg-(--color-emerald)" : "w-1.5 bg-border"
+              }`}
+            />
+          ))}
+        </div>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            aria-label="Назад"
+            onClick={() => scrollTo(Math.max(0, active - 1))}
+            disabled={active === 0}
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background text-foreground/70 transition hover:bg-muted disabled:opacity-40"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <button
+            type="button"
+            aria-label="Вперёд"
+            onClick={() => scrollTo(Math.min(deals.length - 1, active + 1))}
+            disabled={active === deals.length - 1}
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background text-foreground/70 transition hover:bg-muted disabled:opacity-40"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function StatusPill({ status }: { status: Deal["status"] }) {
+  const map = {
+    Готов: "bg-(--color-emerald)/15 text-(--color-emerald)",
+    "В работе": "bg-amber-300/15 text-amber-200",
+    Оплачен: "bg-sky-300/15 text-sky-200",
+  } as const;
+  return (
+    <span
+      className={`rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider ${map[status]}`}
+    >
+      {status}
+    </span>
+  );
+}
+
+function RateField({ rate }: { rate: string }) {
+  return (
+    <div className="mt-3 flex items-center justify-between rounded-xl border border-(--color-emerald)/25 bg-(--color-emerald)/[0.06] px-4 py-2.5">
+      <div>
+        <div className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+          Курс операции
+        </div>
+        <div className="mt-0.5 font-mono text-sm font-semibold text-foreground">{rate}</div>
+      </div>
+      <span className="rounded-full bg-(--color-emerald)/15 px-2 py-0.5 font-mono text-[10px] font-bold tracking-wider text-(--color-emerald)">
+        +0.7%
+      </span>
+    </div>
   );
 }
