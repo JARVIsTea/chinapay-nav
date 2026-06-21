@@ -62,7 +62,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row sm:items-center">
-          <span>© {new Date().getFullYear()} Pay to China .ru. Все права защищены.</span>
+          <span>© {new Date().getFullYear()} Pay to China. Все права защищены.</span>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white">Политика конфиденциальности</a>
             <a href="#" className="hover:text-white">Условия использования</a>
