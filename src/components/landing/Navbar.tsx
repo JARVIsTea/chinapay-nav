@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Logo } from "./Logo";
 
 const links = [
   { href: "#advantages", label: "Преимущества" },
   { href: "#how", label: "Как работает" },
+  { href: "#acceptance", label: "Документы" },
+  { href: "#cases", label: "Кейсы" },
   { href: "#services", label: "Услуги" },
   { href: "#faq", label: "Вопросы" },
-  { href: "#contact", label: "Контакты" },
 ];
 
 export function Navbar() {
@@ -26,72 +25,64 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-border/60 bg-background/80 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
+          ? "border-b border-white/10 bg-black/70 backdrop-blur-xl"
+          : "border-b border-transparent bg-black/30 backdrop-blur-md"
       }`}
     >
-      <div className="container-page flex h-16 items-center justify-between md:h-18">
-        <a href="#top" className="flex items-center gap-2.5">
-          <Logo />
-          <span className="font-display text-lg font-bold tracking-tight text-foreground">
-            PayChina
-          </span>
+      <div className="container-page flex h-12 items-center justify-between text-white">
+        <a href="#top" className="font-display text-[15px] font-semibold tracking-tight text-white">
+          PayChina
         </a>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-[12px] font-normal text-white/75 transition-colors hover:text-white"
             >
               {l.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <a
-            href="#contact"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Получить консультацию
-          </a>
-          <Button asChild className="bg-gradient-emerald text-accent-foreground shadow-emerald hover:opacity-95">
-            <a href="#contact">Оставить заявку</a>
-          </Button>
-        </div>
+        <a
+          href="#contact"
+          className="hidden text-[12px] font-normal text-white/75 transition-colors hover:text-white lg:inline"
+        >
+          Связаться ›
+        </a>
 
         <button
           type="button"
           aria-label="Открыть меню"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-background text-foreground lg:hidden"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-md text-white/85 lg:hidden"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {open && (
-        <div className="border-t border-border bg-background/95 backdrop-blur-xl lg:hidden">
+        <div className="border-t border-white/10 bg-black/90 backdrop-blur-xl lg:hidden">
           <div className="container-page flex flex-col gap-1 py-4">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-sm font-medium text-foreground/80 hover:bg-muted"
+                className="rounded-md px-3 py-3 text-base font-medium text-white/85 hover:bg-white/5"
               >
                 {l.label}
               </a>
             ))}
-            <Button
-              asChild
-              className="mt-2 bg-gradient-emerald text-accent-foreground shadow-emerald"
+            <a
+              href="#contact"
               onClick={() => setOpen(false)}
+              className="mt-2 inline-flex h-11 items-center justify-center rounded-full bg-[--color-emerald] text-sm font-semibold text-white"
             >
-              <a href="#contact">Оставить заявку</a>
-            </Button>
+              Оставить заявку
+            </a>
           </div>
         </div>
       )}

@@ -1,121 +1,169 @@
-import { ArrowRight, Check, ShieldCheck } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/hero-illustration.png";
-
-const trustItems = [
-  "Работаем с юридическими лицами",
-  "Сопровождение ВЭД",
-  "Персональный менеджер",
-];
+"use client";
+import { motion, useReducedMotion } from "motion/react";
+import { ArrowRight } from "lucide-react";
 
 export function Hero() {
+  const reduce = useReducedMotion();
+  const fade = (delay = 0) => ({
+    initial: { opacity: 0, y: reduce ? 0 : 18 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.9, ease: [0.2, 0.7, 0.2, 1] as const, delay },
+  });
+
   return (
-    <section id="top" className="relative overflow-hidden pt-28 md:pt-32 lg:pt-40">
-      {/* Background layers */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-mist" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-hero-glow" />
+    <section
+      id="top"
+      className="relative isolate overflow-hidden pt-28 text-white md:pt-32"
+      style={{ background: "var(--color-navy-deep)" }}
+    >
+      {/* ambient glow */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[820px] bg-hero-glow opacity-90" />
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[640px] opacity-[0.04]"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[820px] opacity-[0.05]"
         style={{
           backgroundImage:
-            "linear-gradient(to right, var(--navy) 1px, transparent 1px), linear-gradient(to bottom, var(--navy) 1px, transparent 1px)",
-          backgroundSize: "56px 56px",
+            "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
+          backgroundSize: "72px 72px",
           maskImage: "radial-gradient(ellipse at top, black 30%, transparent 75%)",
         }}
       />
 
-      <div className="container-page grid items-center gap-12 pb-20 lg:grid-cols-12 lg:gap-10 lg:pb-28">
-        <div className="lg:col-span-7">
-          <div className="animate-rise inline-flex items-center gap-2 rounded-full border border-border bg-background/70 px-3 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur">
-            <ShieldCheck className="h-3.5 w-3.5 text-[--color-emerald]" />
-            Международные расчёты с Китаем под ключ
-          </div>
+      <div className="container-page flex flex-col items-center pb-24 text-center md:pb-32">
+        <motion.span
+          {...fade(0)}
+          className="text-[13px] font-semibold uppercase tracking-[0.18em] text-[--color-emerald]"
+        >
+          PayChina · B2B
+        </motion.span>
 
-          <h1 className="animate-rise mt-5 font-display text-5xl font-bold leading-[1.05] tracking-tight text-foreground text-balance md:text-6xl lg:text-7xl" style={{ animationDelay: "60ms" }}>
-            Оплата счетов <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-[--color-navy] via-[--color-navy-soft] to-[--color-emerald] bg-clip-text text-transparent">в Китай</span>{" "}
-            для бизнеса
-          </h1>
+        <motion.h1
+          {...fade(0.06)}
+          className="mt-5 max-w-[14ch] font-display text-[44px] font-bold leading-[0.98] tracking-[-0.045em] text-white text-balance sm:text-[64px] md:max-w-[16ch] md:text-[88px] lg:text-[112px]"
+        >
+          Платежи в Китай.
+          <span className="block bg-gradient-to-b from-white to-white/45 bg-clip-text text-transparent">
+            Без границ.
+          </span>
+        </motion.h1>
 
-          <p className="animate-rise mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl" style={{ animationDelay: "120ms" }}>
-            Помогаем компаниям оплачивать инвойсы китайским поставщикам с документальным
-            сопровождением и персональным сопровождением сделки.
-          </p>
+        <motion.p
+          {...fade(0.14)}
+          className="mt-7 max-w-xl text-lg leading-relaxed text-white/65 md:text-xl"
+        >
+          Оплата инвойсов китайским поставщикам со счёта вашей компании.
+          Документы, валютный контроль и персональный менеджер — под ключ.
+        </motion.p>
 
-          <div className="animate-rise mt-8 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "180ms" }}>
-            <Button asChild size="lg" className="h-12 bg-gradient-emerald px-6 text-base font-semibold text-accent-foreground shadow-emerald hover:opacity-95">
-              <a href="#contact">
-                Получить консультацию
-                <ArrowRight className="ml-1 h-4 w-4" />
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="h-12 border-foreground/15 bg-background px-6 text-base font-semibold text-foreground hover:bg-muted">
-              <a href="#contact">Оставить заявку</a>
-            </Button>
-          </div>
+        <motion.div
+          {...fade(0.22)}
+          className="mt-10 flex flex-col items-center gap-3 sm:flex-row"
+        >
+          <a
+            href="#contact"
+            className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[--color-emerald] px-7 text-[15px] font-semibold text-white shadow-emerald transition-transform hover:scale-[1.02] active:scale-[0.98]"
+          >
+            Оставить заявку
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </a>
+          <a
+            href="#how"
+            className="inline-flex h-12 items-center justify-center px-3 text-[15px] font-semibold text-[--color-emerald-soft] hover:text-white"
+          >
+            Как это работает ›
+          </a>
+        </motion.div>
 
-          <ul className="animate-rise mt-10 flex flex-wrap gap-x-6 gap-y-3" style={{ animationDelay: "240ms" }}>
-            {trustItems.map((t) => (
-              <li key={t} className="flex items-center gap-2 text-sm font-medium text-foreground/80">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[--color-emerald]/15 text-[--color-emerald]">
-                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
-                </span>
-                {t}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="relative lg:col-span-5">
-          <div className="absolute -inset-10 -z-10 rounded-[40px] bg-gradient-to-br from-[--color-emerald]/15 via-transparent to-[--color-navy]/10 blur-3xl" />
-          <div className="relative animate-rise rounded-[28px] border border-border bg-card p-3 shadow-elev-3" style={{ animationDelay: "200ms" }}>
-            <div className="overflow-hidden rounded-[20px] bg-gradient-to-br from-[--color-navy-deep] to-[--color-navy] p-6">
-              <img
-                src={heroImg}
-                alt="Иллюстрация международных расчётов с Китаем"
-                width={1024}
-                height={1024}
-                className="animate-float mx-auto h-auto w-full max-w-md drop-shadow-[0_30px_60px_rgba(0,0,0,0.35)]"
-              />
+        {/* Product moment: currency orb */}
+        <motion.div
+          initial={{ opacity: 0, y: 60, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1.1, ease: [0.2, 0.7, 0.2, 1], delay: 0.2 }}
+          className="relative mt-20 w-full max-w-[1080px]"
+        >
+          <div className="absolute -inset-x-20 -top-20 bottom-0 -z-10 rounded-[60px] bg-[radial-gradient(60%_50%_at_50%_30%,oklch(0.62_0.18_250/0.35),transparent_70%)] blur-2xl" />
+          <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl md:rounded-[40px] md:p-12">
+            <div className="grid items-center gap-10 md:grid-cols-3">
+              <CurrencyOrb symbol="₽" label="Россия" sub="Рубли" hue="white" />
+              <FlowBar />
+              <CurrencyOrb symbol="¥" label="Китай" sub="Юани" hue="blue" />
             </div>
 
-            {/* Floating mini cards */}
-            <div className="absolute -left-6 top-10 hidden rounded-2xl border border-border bg-background/95 p-3 shadow-elev-2 backdrop-blur md:flex md:items-center md:gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[--color-emerald]/15 text-[--color-emerald]">
-                <Check className="h-4 w-4" strokeWidth={3} />
-              </span>
-              <div>
-                <div className="text-xs text-muted-foreground">Платёж проведён</div>
-                <div className="text-sm font-semibold text-foreground">¥ 248 500</div>
-              </div>
-            </div>
-            <div className="absolute -bottom-5 -right-4 hidden rounded-2xl border border-border bg-background/95 px-4 py-3 shadow-elev-2 backdrop-blur md:block">
-              <div className="text-xs text-muted-foreground">Срок</div>
-              <div className="text-sm font-semibold text-foreground">1–3 рабочих дня</div>
+            <div className="mt-10 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 text-center">
+              <Stat value="1–3 дня" label="срок зачисления" />
+              <Stat value="100%" label="закрывающих документов" />
+              <Stat value="24/7" label="персональный менеджер" />
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Logo strip */}
-      <div className="container-page pb-16">
-        <div className="rounded-2xl border border-border bg-background/60 px-6 py-5 backdrop-blur">
-          <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3 text-sm text-muted-foreground">
-            <span className="text-xs font-medium uppercase tracking-widest">Нам доверяют</span>
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-2 font-display text-base font-semibold text-foreground/60">
-              <span>Импортёры</span>
-              <span className="opacity-40">•</span>
-              <span>Маркетплейсы</span>
-              <span className="opacity-40">•</span>
-              <span>Производство</span>
-              <span className="opacity-40">•</span>
-              <span>Торговые дома</span>
-              <span className="opacity-40">•</span>
-              <span>CFO &amp; финансисты</span>
-            </div>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
+  );
+}
+
+function CurrencyOrb({
+  symbol,
+  label,
+  sub,
+  hue,
+}: {
+  symbol: string;
+  label: string;
+  sub: string;
+  hue: "white" | "blue";
+}) {
+  const gradient =
+    hue === "white"
+      ? "radial-gradient(circle at 35% 30%, #ffffff 0%, #d0d4dc 45%, #4a4d55 100%)"
+      : "radial-gradient(circle at 35% 30%, oklch(0.78 0.14 250) 0%, oklch(0.55 0.22 255) 45%, oklch(0.25 0.15 260) 100%)";
+  return (
+    <div className="flex flex-col items-center">
+      <div
+        className="relative h-40 w-40 rounded-full md:h-52 md:w-52"
+        style={{
+          background: gradient,
+          boxShadow:
+            hue === "blue"
+              ? "0 30px 80px -20px oklch(0.55 0.22 255 / 0.6), inset 0 -10px 30px oklch(0 0 0 / 0.3)"
+              : "0 30px 80px -20px oklch(0 0 0 / 0.6), inset 0 -10px 30px oklch(0 0 0 / 0.25)",
+        }}
+      >
+        <span
+          className="absolute inset-0 flex items-center justify-center font-display text-6xl font-bold md:text-7xl"
+          style={{ color: hue === "white" ? "#1d1d1f" : "#ffffff", textShadow: "0 2px 8px rgba(0,0,0,0.15)" }}
+        >
+          {symbol}
+        </span>
+        <span className="absolute -inset-2 -z-10 rounded-full opacity-60 blur-2xl" style={{ background: gradient }} />
+      </div>
+      <div className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-white/50">{label}</div>
+      <div className="mt-1 font-display text-lg font-semibold text-white">{sub}</div>
+    </div>
+  );
+}
+
+function FlowBar() {
+  return (
+    <div className="relative flex items-center justify-center">
+      <div className="relative h-[2px] w-full max-w-[220px] overflow-hidden rounded-full bg-white/10 md:max-w-none">
+        <motion.div
+          className="absolute inset-y-0 left-0 w-1/3 rounded-full"
+          style={{ background: "linear-gradient(to right, transparent, oklch(0.62 0.18 250), transparent)" }}
+          animate={{ x: ["-100%", "300%"] }}
+          transition={{ duration: 2.6, ease: "easeInOut", repeat: Infinity }}
+        />
+      </div>
+      <div className="absolute -top-7 left-1/2 -translate-x-1/2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">
+        Прямой канал
+      </div>
+    </div>
+  );
+}
+
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="bg-[--color-navy-deep]/40 px-3 py-5">
+      <div className="font-display text-xl font-bold text-white md:text-2xl">{value}</div>
+      <div className="mt-1 text-[11px] uppercase tracking-wider text-white/50 md:text-xs">{label}</div>
+    </div>
   );
 }
