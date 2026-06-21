@@ -81,8 +81,8 @@ export function LeadForm() {
                     </span>
                     <div>
                       <div className="text-xs uppercase tracking-widest text-white/50">Телефон</div>
-                      <a href="tel:+78005005050" className="font-semibold text-white hover:text-(--color-emerald-soft)">
-                        +7 (800) 500-50-50
+                      <a href="tel:+79968457051" className="font-semibold text-white hover:text-(--color-emerald-soft)">
+                        +7 (996) 845-70-51
                       </a>
                     </div>
                   </li>

@@ -49,7 +49,7 @@ export const Route = createFileRoute("/")({
           url: "/",
           contactPoint: {
             "@type": "ContactPoint",
-            telephone: "+7-800-500-50-50",
+            telephone: "+7-996-845-70-51",
             contactType: "sales",
             email: "hello@paychina.ru",
             areaServed: "RU",
@@ -66,9 +66,9 @@ function Index() {
   useReveal();
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Navbar />
-      <div className="h-12" />
       <Marquee />
+      <Navbar />
+      <div className="h-[84px]" />
       <main>
         <Hero />
         <Advantages />

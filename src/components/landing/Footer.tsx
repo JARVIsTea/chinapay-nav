@@ -40,9 +40,9 @@ export function Footer() {
             <div className="text-xs font-semibold uppercase tracking-widest text-white/50">Контакты</div>
             <ul className="mt-4 space-y-3 text-sm">
               <li>
-                <a href="tel:+78005005050" className="flex items-center gap-2.5 text-white/85 hover:text-(--color-emerald-soft)">
+                <a href="tel:+79968457051" className="flex items-center gap-2.5 text-white/85 hover:text-(--color-emerald-soft)">
                   <Phone className="h-4 w-4 text-(--color-emerald)" />
-                  +7 (800) 500-50-50
+                  +7 (996) 845-70-51
                 </a>
               </li>
               <li>
