@@ -16,20 +16,20 @@ import { useReveal } from "@/hooks/use-reveal";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Оплата счетов в Китай для бизнеса | PayChina — сопровождение ВЭД" },
+      { title: "Оплата счетов в Китай для бизнеса | Pay to China .ru — сопровождение ВЭД" },
       {
         name: "description",
         content:
-          "PayChina — оплата инвойсов китайским поставщикам для юридических лиц. Сопровождение ВЭД, документы, персональный менеджер. Прозрачные условия и сроки.",
+          "Pay to China .ru — оплата инвойсов китайским поставщикам для юридических лиц. Сопровождение ВЭД, документы, персональный менеджер. Прозрачные условия и сроки.",
       },
-      { property: "og:title", content: "PayChina — оплата счетов в Китай для бизнеса" },
+      { property: "og:title", content: "Pay to China .ru — оплата счетов в Китай для бизнеса" },
       {
         property: "og:description",
         content:
           "Оплата инвойсов в Китай, сопровождение ВЭД и поддержка импортных сделок. Работаем с юридическими лицами.",
       },
       { property: "og:url", content: "/" },
-      { name: "twitter:title", content: "PayChina — оплата счетов в Китай для бизнеса" },
+      { name: "twitter:title", content: "Pay to China .ru — оплата счетов в Китай для бизнеса" },
       {
         name: "twitter:description",
         content: "Оплата инвойсов китайским поставщикам с полным сопровождением ВЭД.",
@@ -42,7 +42,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "PayChina",
+          name: "Pay to China .ru",
           description:
             "Оплата счетов и инвойсов в Китай для юридических лиц с сопровождением ВЭД.",
           url: "/",

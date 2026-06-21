@@ -31,7 +31,7 @@ export function Navbar() {
     >
       <div className="container-page flex h-12 items-center justify-between text-white">
         <a href="#top" className="font-display text-[15px] font-semibold tracking-tight text-white">
-          PayChina
+          Pay to China .ru
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex">

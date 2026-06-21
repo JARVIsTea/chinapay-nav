@@ -9,7 +9,7 @@ export function Footer() {
           <div className="lg:col-span-5">
             <div className="flex items-center gap-2.5">
               <Logo />
-              <span className="font-display text-lg font-bold tracking-tight text-white">PayChina</span>
+              <span className="font-display text-lg font-bold tracking-tight text-white">Pay to China .ru</span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/65">
               Помогаем компаниям проводить международные расчёты с китайскими поставщиками
@@ -62,7 +62,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row sm:items-center">
-          <span>© {new Date().getFullYear()} PayChina. Все права защищены.</span>
+          <span>© {new Date().getFullYear()} Pay to China .ru. Все права защищены.</span>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white">Политика конфиденциальности</a>
             <a href="#" className="hover:text-white">Условия использования</a>
