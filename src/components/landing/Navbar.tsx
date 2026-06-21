@@ -53,39 +53,13 @@ export function Navbar() {
           Связаться ›
         </a>
 
-        <button
-          type="button"
-          aria-label="Открыть меню"
-          onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-md text-white/85 lg:hidden"
+        <a
+          href="#contact"
+          className="inline-flex h-8 items-center rounded-full bg-(--color-emerald) px-3 text-[12px] font-semibold text-white lg:hidden"
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+          Связаться
+        </a>
       </div>
-
-      {open && (
-        <div className="border-t border-white/10 bg-black/90 backdrop-blur-xl lg:hidden">
-          <div className="container-page flex flex-col gap-1 py-4">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-base font-medium text-white/85 hover:bg-white/5"
-              >
-                {l.label}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="mt-2 inline-flex h-11 items-center justify-center rounded-full bg-(--color-emerald) text-sm font-semibold text-white"
-            >
-              Оставить заявку
-            </a>
-          </div>
-        </div>
-      )}
     </header>
   );
 }
