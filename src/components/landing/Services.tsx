@@ -10,7 +10,7 @@ const items = [
 
 export function Services() {
   return (
-    <section id="services" className="relative py-24 lg:py-32">
+    <section id="services" className="relative py-14 lg:py-20">
       <div className="container-page">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="reveal max-w-2xl">

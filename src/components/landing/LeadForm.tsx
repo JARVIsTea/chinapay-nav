@@ -54,7 +54,7 @@ export function LeadForm() {
   };
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32">
+    <section id="contact" className="relative py-14 lg:py-20">
       <div className="container-page">
         <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-elev-2">
           <div className="grid lg:grid-cols-12">

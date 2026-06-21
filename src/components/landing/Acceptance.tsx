@@ -70,7 +70,7 @@ const deals: Deal[] = [
     status: "Готов",
     rub: "2 480 000 ₽",
     cny: "¥ 198 400",
-    rate: "1 ¥ = 12.50 ₽",
+    rate: "1 ¥ = 11.45 ₽",
     category: "Электроника · Шэньчжэнь",
   },
   {
@@ -78,7 +78,7 @@ const deals: Deal[] = [
     status: "В работе",
     rub: "860 000 ₽",
     cny: "¥ 68 252",
-    rate: "1 ¥ = 12.60 ₽",
+    rate: "1 ¥ = 11.45 ₽",
     category: "Оборудование · Гуанчжоу",
   },
   {
@@ -86,14 +86,14 @@ const deals: Deal[] = [
     status: "Оплачен",
     rub: "5 120 000 ₽",
     cny: "¥ 406 666",
-    rate: "1 ¥ = 12.59 ₽",
+    rate: "1 ¥ = 11.45 ₽",
     category: "Текстиль · Иу",
   },
 ];
 
 export function Acceptance() {
   return (
-    <section id="acceptance" className="relative overflow-hidden py-24 lg:py-32">
+    <section id="acceptance" className="relative overflow-hidden py-14 lg:py-20">
       <div
         className="pointer-events-none absolute inset-0 -z-10"
         style={{

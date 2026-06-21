@@ -42,7 +42,7 @@ const items = [
 
 export function Advantages() {
   return (
-    <section id="advantages" className="relative py-24 lg:py-32">
+    <section id="advantages" className="relative py-14 lg:py-20">
       <div className="container-page">
         <div className="reveal mx-auto max-w-2xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-3 py-1 text-xs font-medium uppercase tracking-widest text-muted-foreground">
