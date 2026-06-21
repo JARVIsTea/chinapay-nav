@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Send, X, MessageCircle, Clock } from "lucide-react";
 
-const TELEGRAM_URL = "https://t.me/paytochina_ru";
+const TELEGRAM_URL = "https://t.me/St_fed";
 const STORAGE_KEY = "p2c_exit_intent_shown";
 
 export function ExitIntent() {
