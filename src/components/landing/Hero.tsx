@@ -14,7 +14,7 @@ export function Hero() {
     <section
       id="top"
       className="relative isolate overflow-hidden pt-28 text-white md:pt-32"
-      style={{ background: "var(--color-navy-deep)" }}
+      style={{ background: "#000" }}
     >
       {/* ambient glow */}
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[820px] bg-hero-glow opacity-90" />

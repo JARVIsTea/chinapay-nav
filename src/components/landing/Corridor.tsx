@@ -9,7 +9,7 @@ const nodes = [
 
 export function Corridor() {
   return (
-    <section className="relative overflow-hidden py-24 lg:py-32" style={{ background: "var(--color-navy-deep)" }}>
+    <section className="relative overflow-hidden py-24 lg:py-32" style={{ background: "#000" }}>
       {/* gradient mesh */}
       <div
         aria-hidden
