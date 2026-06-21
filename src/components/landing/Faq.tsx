@@ -26,7 +26,7 @@ const faqs = [
 
 export function Faq() {
   return (
-    <section id="faq" className="relative py-24 lg:py-32">
+    <section id="faq" className="relative py-14 lg:py-20">
       <div className="container-page grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="reveal lg:col-span-5">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-3 py-1 text-xs font-medium uppercase tracking-widest text-muted-foreground">

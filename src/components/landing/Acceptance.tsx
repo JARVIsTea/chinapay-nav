@@ -70,7 +70,7 @@ const deals: Deal[] = [
     status: "Готов",
     rub: "2 480 000 ₽",
     cny: "¥ 198 400",
-    rate: "1 ¥ = 12.50 ₽",
+    rate: "1 ¥ = 11.45 ₽",
     category: "Электроника · Шэньчжэнь",
   },
   {
@@ -78,7 +78,7 @@ const deals: Deal[] = [
     status: "В работе",
     rub: "860 000 ₽",
     cny: "¥ 68 252",
-    rate: "1 ¥ = 12.60 ₽",
+    rate: "1 ¥ = 11.45 ₽",
     category: "Оборудование · Гуанчжоу",
   },
   {
@@ -86,14 +86,14 @@ const deals: Deal[] = [
     status: "Оплачен",
     rub: "5 120 000 ₽",
     cny: "¥ 406 666",
-    rate: "1 ¥ = 12.59 ₽",
+    rate: "1 ¥ = 11.45 ₽",
     category: "Текстиль · Иу",
   },
 ];
 
 export function Acceptance() {
   return (
-    <section id="acceptance" className="relative overflow-hidden py-24 lg:py-32">
+    <section id="acceptance" className="relative overflow-hidden py-14 lg:py-20">
       <div
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
@@ -186,27 +186,27 @@ function DocumentMock() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.5, delay: i * 0.05, ease: [0.2, 0.7, 0.2, 1] }}
-            className="relative w-full shrink-0 snap-center rounded-2xl border border-border bg-card p-6 shadow-elev-3"
+            className="relative w-full shrink-0 snap-center rounded-2xl border border-border bg-card p-4 shadow-elev-3 sm:p-5"
           >
-            <div className="flex items-center justify-between">
-              <div>
+            <div className="flex items-start justify-between gap-2">
+              <div className="min-w-0">
                 <div className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
                   Платёжный пакет
                 </div>
-                <div className="font-display text-lg font-semibold">Инвойс №{d.no}</div>
-                <div className="mt-0.5 text-[11px] text-muted-foreground">{d.category}</div>
+                <div className="font-display text-base font-semibold sm:text-lg">Инвойс №{d.no}</div>
+                <div className="mt-0.5 truncate text-[11px] text-muted-foreground">{d.category}</div>
               </div>
               <StatusPill status={d.status} />
             </div>
 
-            <div className="mt-5 grid grid-cols-2 gap-3 rounded-xl border border-border bg-muted/40 p-4 text-sm">
-              <div>
-                <div className="text-xs text-muted-foreground">Сумма к оплате</div>
-                <div className="font-display text-base font-bold">{d.rub}</div>
+            <div className="mt-4 grid grid-cols-2 gap-2 rounded-xl border border-border bg-muted/40 p-3 text-sm">
+              <div className="min-w-0">
+                <div className="text-[11px] text-muted-foreground">К оплате</div>
+                <div className="font-display text-sm font-bold sm:text-base">{d.rub}</div>
               </div>
-              <div className="text-right">
-                <div className="text-xs text-muted-foreground">Поставщику</div>
-                <div className="font-display text-base font-bold">{d.cny}</div>
+              <div className="min-w-0 text-right">
+                <div className="text-[11px] text-muted-foreground">Поставщику</div>
+                <div className="font-display text-sm font-bold sm:text-base">{d.cny}</div>
               </div>
             </div>
 
@@ -274,7 +274,7 @@ function StatusPill({ status }: { status: Deal["status"] }) {
   } as const;
   return (
     <span
-      className={`rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider ${map[status]}`}
+      className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${map[status]}`}
     >
       {status}
     </span>

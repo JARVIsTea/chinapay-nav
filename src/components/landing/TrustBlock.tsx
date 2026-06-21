@@ -6,7 +6,7 @@ const stats = [
 
 export function TrustBlock() {
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative py-14 lg:py-20">
       <div className="container-page">
         <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-navy p-10 text-(--color-mist) shadow-elev-3 md:p-16">
           <div className="pointer-events-none absolute inset-0 grid-bg opacity-40" />
