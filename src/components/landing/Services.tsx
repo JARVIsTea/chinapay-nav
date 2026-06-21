@@ -34,30 +34,38 @@ export function Services() {
         </div>
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {items.map(({ icon: Icon, title, text }, i) => (
-            <article
-              key={title}
-              className={`reveal group relative flex flex-col gap-4 rounded-2xl border border-border bg-card p-7 shadow-elev-1 transition-all duration-300 hover:-translate-y-1 hover:shadow-elev-2 ${
-                i === 0 ? "lg:col-span-2 lg:bg-gradient-navy lg:text-(--color-mist)" : ""
-              }`}
-              style={{ transitionDelay: `${i * 50}ms` }}
-            >
-              <div className="flex items-start justify-between">
-                <span
-                  className={`flex h-12 w-12 items-center justify-center rounded-xl ${
-                    i === 0 ? "lg:bg-white/10 lg:text-(--color-emerald)" : "bg-gradient-navy text-(--color-emerald) shadow-elev-2"
-                  }`}
-                >
-                  <Icon className="h-5 w-5" />
-                </span>
-                <ArrowUpRight className={`h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${i === 0 ? "lg:text-white/60" : "text-muted-foreground"}`} />
-              </div>
-              <div>
-                <h3 className={`font-display text-xl font-semibold ${i === 0 ? "lg:text-white" : "text-foreground"}`}>{title}</h3>
-                <p className={`mt-2 text-sm leading-relaxed ${i === 0 ? "lg:text-white/70" : "text-muted-foreground"}`}>{text}</p>
-              </div>
-            </article>
-          ))}
+          {items.map(({ icon: Icon, title, text }, i) => {
+            const featured = i === 0;
+            return (
+              <article
+                key={title}
+                className={`reveal group relative flex flex-col gap-4 rounded-2xl border p-7 shadow-elev-1 transition-all duration-300 hover:-translate-y-1 hover:shadow-elev-2 ${
+                  featured
+                    ? "lg:col-span-2 border-white/10 text-white"
+                    : "border-border bg-card"
+                }`}
+                style={{
+                  transitionDelay: `${i * 50}ms`,
+                  ...(featured ? { backgroundImage: "var(--gradient-navy)" } : {}),
+                }}
+              >
+                <div className="flex items-start justify-between">
+                  <span
+                    className={`flex h-12 w-12 items-center justify-center rounded-xl ${
+                      featured ? "bg-white/10 text-(--color-emerald)" : "bg-gradient-navy text-(--color-emerald) shadow-elev-2"
+                    }`}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <ArrowUpRight className={`h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${featured ? "text-white/60" : "text-muted-foreground"}`} />
+                </div>
+                <div>
+                  <h3 className={`font-display text-xl font-semibold ${featured ? "text-white" : "text-foreground"}`}>{title}</h3>
+                  <p className={`mt-2 text-sm leading-relaxed ${featured ? "text-white/70" : "text-muted-foreground"}`}>{text}</p>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
