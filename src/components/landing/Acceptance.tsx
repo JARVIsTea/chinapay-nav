@@ -6,9 +6,12 @@ import {
   Receipt,
   ScrollText,
   ShieldCheck,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { Reveal, StaggerGroup, itemVariants } from "./Reveal";
 import { motion } from "motion/react";
+import { useRef, useState } from "react";
 
 const items = [
   {
@@ -50,6 +53,42 @@ const docs = [
   "Инвойс поставщика",
   "SWIFT-подтверждение",
   "Документы для валютного контроля",
+];
+
+type Deal = {
+  no: string;
+  status: "Готов" | "В работе" | "Оплачен";
+  rub: string;
+  cny: string;
+  rate: string;
+  category: string;
+};
+
+const deals: Deal[] = [
+  {
+    no: "А-1024",
+    status: "Готов",
+    rub: "2 480 000 ₽",
+    cny: "¥ 198 400",
+    rate: "1 ¥ = 12.50 ₽",
+    category: "Электроника · Шэньчжэнь",
+  },
+  {
+    no: "А-1187",
+    status: "В работе",
+    rub: "860 000 ₽",
+    cny: "¥ 68 252",
+    rate: "1 ¥ = 12.60 ₽",
+    category: "Оборудование · Гуанчжоу",
+  },
+  {
+    no: "А-1342",
+    status: "Оплачен",
+    rub: "5 120 000 ₽",
+    cny: "¥ 406 666",
+    rate: "1 ¥ = 12.59 ₽",
+    category: "Текстиль · Иу",
+  },
 ];
 
 export function Acceptance() {
