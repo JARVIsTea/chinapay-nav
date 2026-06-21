@@ -64,7 +64,7 @@ export function Advantages() {
               style={{ transitionDelay: `${i * 40}ms` }}
             >
               <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: "var(--gradient-hero-glow)" }} />
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-navy text-[--color-emerald] shadow-elev-2">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-navy text-(--color-emerald) shadow-elev-2">
                 <Icon className="h-5 w-5" />
               </span>
               <h3 className="mt-5 font-display text-lg font-semibold text-foreground">{title}</h3>

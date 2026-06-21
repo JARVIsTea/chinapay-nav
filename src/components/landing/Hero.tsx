@@ -31,7 +31,7 @@ export function Hero() {
       <div className="container-page flex flex-col items-center pb-24 text-center md:pb-32">
         <motion.span
           {...fade(0)}
-          className="text-[13px] font-semibold uppercase tracking-[0.18em] text-[--color-emerald]"
+          className="text-[13px] font-semibold uppercase tracking-[0.18em] text-(--color-emerald)"
         >
           PayChina · B2B
         </motion.span>
@@ -60,14 +60,14 @@ export function Hero() {
         >
           <a
             href="#contact"
-            className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[--color-emerald] px-7 text-[15px] font-semibold text-white shadow-emerald transition-transform hover:scale-[1.02] active:scale-[0.98]"
+            className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-(--color-emerald) px-7 text-[15px] font-semibold text-white shadow-emerald transition-transform hover:scale-[1.02] active:scale-[0.98]"
           >
             Оставить заявку
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </a>
           <a
             href="#how"
-            className="inline-flex h-12 items-center justify-center px-3 text-[15px] font-semibold text-[--color-emerald-soft] hover:text-white"
+            className="inline-flex h-12 items-center justify-center px-3 text-[15px] font-semibold text-(--color-emerald-soft) hover:text-white"
           >
             Как это работает ›
           </a>
@@ -161,7 +161,7 @@ function FlowBar() {
 
 function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <div className="bg-[--color-navy-deep]/40 px-3 py-5">
+    <div className="bg-(--color-navy-deep)/40 px-3 py-5">
       <div className="font-display text-xl font-bold text-white md:text-2xl">{value}</div>
       <div className="mt-1 text-[11px] uppercase tracking-wider text-white/50 md:text-xs">{label}</div>
     </div>

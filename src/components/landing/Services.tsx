@@ -38,14 +38,14 @@ export function Services() {
             <article
               key={title}
               className={`reveal group relative flex flex-col gap-4 rounded-2xl border border-border bg-card p-7 shadow-elev-1 transition-all duration-300 hover:-translate-y-1 hover:shadow-elev-2 ${
-                i === 0 ? "lg:col-span-2 lg:bg-gradient-navy lg:text-[--color-mist]" : ""
+                i === 0 ? "lg:col-span-2 lg:bg-gradient-navy lg:text-(--color-mist)" : ""
               }`}
               style={{ transitionDelay: `${i * 50}ms` }}
             >
               <div className="flex items-start justify-between">
                 <span
                   className={`flex h-12 w-12 items-center justify-center rounded-xl ${
-                    i === 0 ? "lg:bg-white/10 lg:text-[--color-emerald]" : "bg-gradient-navy text-[--color-emerald] shadow-elev-2"
+                    i === 0 ? "lg:bg-white/10 lg:text-(--color-emerald)" : "bg-gradient-navy text-(--color-emerald) shadow-elev-2"
                   }`}
                 >
                   <Icon className="h-5 w-5" />

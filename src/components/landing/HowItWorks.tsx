@@ -11,10 +11,10 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how" className="relative overflow-hidden bg-[--color-navy-deep] py-24 text-[--color-mist] lg:py-32">
+    <section id="how" className="relative overflow-hidden bg-(--color-navy-deep) py-24 text-(--color-mist) lg:py-32">
       <div className="pointer-events-none absolute inset-0 grid-bg opacity-50" />
-      <div className="pointer-events-none absolute -left-40 top-1/3 h-[420px] w-[420px] rounded-full bg-[--color-emerald]/20 blur-[120px]" />
-      <div className="pointer-events-none absolute -right-32 bottom-0 h-[380px] w-[380px] rounded-full bg-[--color-navy-soft]/40 blur-[120px]" />
+      <div className="pointer-events-none absolute -left-40 top-1/3 h-[420px] w-[420px] rounded-full bg-(--color-emerald)/20 blur-[120px]" />
+      <div className="pointer-events-none absolute -right-32 bottom-0 h-[380px] w-[380px] rounded-full bg-(--color-navy-soft)/40 blur-[120px]" />
 
       <div className="container-page relative">
         <div className="reveal mx-auto max-w-2xl text-center">
@@ -35,7 +35,7 @@ export function HowItWorks() {
 
         <div className="relative mt-16">
           <div
-            className="pointer-events-none absolute left-7 top-0 hidden h-full w-px bg-gradient-to-b from-[--color-emerald] via-white/15 to-transparent lg:hidden"
+            className="pointer-events-none absolute left-7 top-0 hidden h-full w-px bg-gradient-to-b from-(--color-emerald) via-white/15 to-transparent lg:hidden"
             aria-hidden
           />
           {/* Horizontal connector for desktop */}
@@ -53,7 +53,7 @@ export function HowItWorks() {
                     <span className="absolute -top-3 -right-3 flex h-7 w-7 items-center justify-center rounded-full bg-gradient-emerald text-xs font-bold text-accent-foreground shadow-emerald">
                       {i + 1}
                     </span>
-                    <Icon className="h-7 w-7 text-[--color-emerald]" />
+                    <Icon className="h-7 w-7 text-(--color-emerald)" />
                   </div>
                   <div className="lg:mt-5">
                     <h3 className="font-display text-lg font-semibold text-white">{title}</h3>

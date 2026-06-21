@@ -3,7 +3,7 @@ import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-border bg-[--color-navy-deep] text-[--color-mist]">
+    <footer className="relative border-t border-border bg-(--color-navy-deep) text-(--color-mist)">
       <div className="container-page py-16">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
@@ -40,20 +40,20 @@ export function Footer() {
             <div className="text-xs font-semibold uppercase tracking-widest text-white/50">Контакты</div>
             <ul className="mt-4 space-y-3 text-sm">
               <li>
-                <a href="tel:+78005005050" className="flex items-center gap-2.5 text-white/85 hover:text-[--color-emerald-soft]">
-                  <Phone className="h-4 w-4 text-[--color-emerald]" />
+                <a href="tel:+78005005050" className="flex items-center gap-2.5 text-white/85 hover:text-(--color-emerald-soft)">
+                  <Phone className="h-4 w-4 text-(--color-emerald)" />
                   +7 (800) 500-50-50
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@paychina.ru" className="flex items-center gap-2.5 text-white/85 hover:text-[--color-emerald-soft]">
-                  <Mail className="h-4 w-4 text-[--color-emerald]" />
+                <a href="mailto:hello@paychina.ru" className="flex items-center gap-2.5 text-white/85 hover:text-(--color-emerald-soft)">
+                  <Mail className="h-4 w-4 text-(--color-emerald)" />
                   hello@paychina.ru
                 </a>
               </li>
               <li>
-                <a href="https://t.me/paychina" className="flex items-center gap-2.5 text-white/85 hover:text-[--color-emerald-soft]">
-                  <MessageCircle className="h-4 w-4 text-[--color-emerald]" />
+                <a href="https://t.me/paychina" className="flex items-center gap-2.5 text-white/85 hover:text-(--color-emerald-soft)">
+                  <MessageCircle className="h-4 w-4 text-(--color-emerald)" />
                   @paychina
                 </a>
               </li>
@@ -80,7 +80,7 @@ function FooterCol({ title, links }: { title: string; links: [string, string][] 
       <ul className="mt-4 space-y-2.5 text-sm">
         {links.map(([href, label]) => (
           <li key={label}>
-            <a href={href} className="text-white/85 transition-colors hover:text-[--color-emerald-soft]">
+            <a href={href} className="text-white/85 transition-colors hover:text-(--color-emerald-soft)">
               {label}
             </a>
           </li>

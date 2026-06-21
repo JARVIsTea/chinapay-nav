@@ -59,9 +59,9 @@ export function LeadForm() {
         <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-elev-2">
           <div className="grid lg:grid-cols-12">
             {/* Left copy */}
-            <div className="relative overflow-hidden bg-gradient-navy p-10 text-[--color-mist] lg:col-span-5 lg:p-14">
+            <div className="relative overflow-hidden bg-gradient-navy p-10 text-(--color-mist) lg:col-span-5 lg:p-14">
               <div className="pointer-events-none absolute inset-0 grid-bg opacity-30" />
-              <div className="pointer-events-none absolute -right-24 -top-24 h-[300px] w-[300px] rounded-full bg-[--color-emerald]/25 blur-[120px]" />
+              <div className="pointer-events-none absolute -right-24 -top-24 h-[300px] w-[300px] rounded-full bg-(--color-emerald)/25 blur-[120px]" />
               <div className="relative">
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-widest text-white/70">
                   Заявка
@@ -76,34 +76,34 @@ export function LeadForm() {
 
                 <ul className="mt-10 space-y-4 text-sm">
                   <li className="flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-[--color-emerald]">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-(--color-emerald)">
                       <Phone className="h-4 w-4" />
                     </span>
                     <div>
                       <div className="text-xs uppercase tracking-widest text-white/50">Телефон</div>
-                      <a href="tel:+78005005050" className="font-semibold text-white hover:text-[--color-emerald-soft]">
+                      <a href="tel:+78005005050" className="font-semibold text-white hover:text-(--color-emerald-soft)">
                         +7 (800) 500-50-50
                       </a>
                     </div>
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-[--color-emerald]">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-(--color-emerald)">
                       <Mail className="h-4 w-4" />
                     </span>
                     <div>
                       <div className="text-xs uppercase tracking-widest text-white/50">Email</div>
-                      <a href="mailto:hello@paychina.ru" className="font-semibold text-white hover:text-[--color-emerald-soft]">
+                      <a href="mailto:hello@paychina.ru" className="font-semibold text-white hover:text-(--color-emerald-soft)">
                         hello@paychina.ru
                       </a>
                     </div>
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-[--color-emerald]">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-(--color-emerald)">
                       <MessageCircle className="h-4 w-4" />
                     </span>
                     <div>
                       <div className="text-xs uppercase tracking-widest text-white/50">Telegram</div>
-                      <a href="https://t.me/paychina" className="font-semibold text-white hover:text-[--color-emerald-soft]">
+                      <a href="https://t.me/paychina" className="font-semibold text-white hover:text-(--color-emerald-soft)">
                         @paychina
                       </a>
                     </div>
@@ -116,7 +116,7 @@ export function LeadForm() {
             <div className="p-8 lg:col-span-7 lg:p-14">
               {submitted ? (
                 <div className="flex h-full flex-col items-center justify-center py-12 text-center">
-                  <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[--color-emerald]/15 text-[--color-emerald]">
+                  <span className="flex h-16 w-16 items-center justify-center rounded-full bg-(--color-emerald)/15 text-(--color-emerald)">
                     <CheckCircle2 className="h-8 w-8" />
                   </span>
                   <h3 className="mt-6 font-display text-2xl font-bold text-foreground">Заявка отправлена</h3>

@@ -100,7 +100,7 @@ export function Cases() {
               />
 
               <div className="relative">
-                <span className="inline-flex items-center rounded-full bg-[--color-emerald]/12 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-[--color-emerald]">
+                <span className="inline-flex items-center rounded-full bg-(--color-emerald)/12 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-(--color-emerald)">
                   {c.tag}
                 </span>
                 <h3 className="mt-4 font-display text-2xl font-semibold leading-tight tracking-tight text-foreground">
@@ -125,7 +125,7 @@ export function Cases() {
                 <ul className="mt-6 grid grid-cols-3 gap-3 border-t border-border pt-6">
                   {c.metrics.map(({ value, label, icon: Icon }) => (
                     <li key={label} className="text-left">
-                      <div className="flex items-center gap-1.5 text-[--color-emerald]">
+                      <div className="flex items-center gap-1.5 text-(--color-emerald)">
                         <Icon className="h-3.5 w-3.5" />
                         <span className="font-display text-xl font-bold tracking-tight text-foreground">
                           {value}
