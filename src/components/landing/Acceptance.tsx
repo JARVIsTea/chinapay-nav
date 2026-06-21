@@ -274,7 +274,7 @@ function StatusPill({ status }: { status: Deal["status"] }) {
   } as const;
   return (
     <span
-      className={`rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider ${map[status]}`}
+      className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${map[status]}`}
     >
       {status}
     </span>
