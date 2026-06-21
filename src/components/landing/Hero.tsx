@@ -31,9 +31,12 @@ export function Hero() {
       <div className="container-page flex flex-col items-center pb-24 text-center md:pb-32">
         <motion.span
           {...fade(0)}
-          className="text-[13px] font-semibold uppercase tracking-[0.18em] text-(--color-emerald)"
+          className="text-[13px] font-semibold uppercase tracking-[0.18em]"
         >
-          Pay to China .ru · B2B
+          <span className="bg-[linear-gradient(90deg,#60a5fa_0%,#a78bfa_50%,#f87171_100%)] bg-clip-text text-transparent">
+            Pay to China
+          </span>
+          <span className="text-(--color-emerald)"> · B2B</span>
         </motion.span>
 
         <motion.h1
