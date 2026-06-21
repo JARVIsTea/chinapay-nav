@@ -136,6 +136,9 @@ export function Acceptance() {
                 style={{ background: "var(--gradient-emerald)" }}
               />
               <div className="relative flex items-start gap-4">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-(--color-emerald)/12 text-(--color-emerald)">
+                  <Icon className="h-5 w-5" />
+                </span>
                 <div className="min-w-0 flex-1">
                   <h3 className="font-display text-base font-semibold tracking-tight text-foreground">
                     {title}
@@ -144,9 +147,6 @@ export function Acceptance() {
                     {text}
                   </p>
                 </div>
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-(--color-emerald)/12 text-(--color-emerald)">
-                  <Icon className="h-5 w-5" />
-                </span>
               </div>
             </motion.article>
           ))}
