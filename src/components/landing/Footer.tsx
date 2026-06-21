@@ -9,7 +9,7 @@ export function Footer() {
           <div className="lg:col-span-5">
             <div className="flex items-center gap-2.5">
               <Logo />
-              <span className="font-display text-lg font-bold tracking-tight text-white">Pay to China .ru</span>
+              <span className="font-display text-lg font-bold tracking-tight bg-[linear-gradient(90deg,#60a5fa_0%,#a78bfa_50%,#f87171_100%)] bg-clip-text text-transparent">Pay to China</span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/65">
               Помогаем компаниям проводить международные расчёты с китайскими поставщиками
