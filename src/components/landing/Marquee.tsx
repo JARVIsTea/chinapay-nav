@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { Ship, Banknote, FileCheck2, ShieldCheck, Clock, Globe2, TrendingUp, Smartphone, MessageCircle } from "lucide-react";
 
 const items = [
-  { icon: Banknote, text: "Курс ¥ → ₽: 11.45 + 0.7%" },
+  { icon: Banknote, text: "Курс ¥ → ₽: 11.25 + 0.5%" },
   { icon: Clock, text: "Зачисление 1–2 рабочих дня" },
   { icon: Smartphone, text: "Переводы на Alipay" },
   { icon: MessageCircle, text: "Переводы на WeChat Pay" },

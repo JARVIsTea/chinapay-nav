@@ -70,7 +70,7 @@ const deals: Deal[] = [
     status: "Готов",
     rub: "2 480 000 ₽",
     cny: "¥ 198 400",
-    rate: "1 ¥ = 11.45 ₽",
+    rate: "1 ¥ = 11.25 ₽",
     category: "Электроника · Шэньчжэнь",
   },
   {
@@ -78,7 +78,7 @@ const deals: Deal[] = [
     status: "В работе",
     rub: "860 000 ₽",
     cny: "¥ 68 252",
-    rate: "1 ¥ = 11.45 ₽",
+    rate: "1 ¥ = 11.25 ₽",
     category: "Оборудование · Гуанчжоу",
   },
   {
@@ -86,7 +86,7 @@ const deals: Deal[] = [
     status: "Оплачен",
     rub: "5 120 000 ₽",
     cny: "¥ 406 666",
-    rate: "1 ¥ = 11.45 ₽",
+    rate: "1 ¥ = 11.25 ₽",
     category: "Текстиль · Иу",
   },
 ];
@@ -293,7 +293,7 @@ function RateField({ rate }: { rate: string }) {
         <div className="mt-0.5 font-mono text-sm font-semibold text-foreground">{rate}</div>
       </div>
       <span className="rounded-full bg-(--color-emerald)/15 px-2 py-0.5 font-mono text-[10px] font-bold tracking-wider text-(--color-emerald)">
-        +0.7%
+        +0.5%
       </span>
     </div>
   );
