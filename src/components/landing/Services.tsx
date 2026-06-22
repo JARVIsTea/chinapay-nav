@@ -1,4 +1,5 @@
 import { ArrowUpRight, CreditCard, Briefcase, MessagesSquare, Package, FileSearch } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 const items = [
   { icon: CreditCard, title: "Оплата инвойсов в Китай", text: "Переводы поставщикам в юанях и долларах с полным документальным сопровождением." },
@@ -24,13 +25,13 @@ export function Services() {
               Закрываем все задачи, связанные с международными расчётами и оплатой китайским поставщикам.
             </p>
           </div>
-          <a
-            href="#contact"
+          <Link
+            to="/contacts"
             className="reveal group inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground shadow-elev-1 transition-all hover:border-foreground/20"
           >
             Обсудить задачу
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </a>
+          </Link>
         </div>
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

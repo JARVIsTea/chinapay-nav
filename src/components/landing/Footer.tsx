@@ -1,4 +1,5 @@
 import { Mail, MessageCircle, Phone } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 
 export function Footer() {
@@ -21,17 +22,19 @@ export function Footer() {
             <FooterCol
               title="Услуги"
               links={[
-                ["#services", "Оплата инвойсов"],
-                ["#services", "Сопровождение ВЭД"],
-                ["#services", "Проверка документов"],
+                ["/services", "Оплата инвойсов"],
+                ["/services", "Сопровождение ВЭД"],
+                ["/services", "Проверка документов"],
               ]}
             />
             <FooterCol
               title="Компания"
               links={[
-                ["#advantages", "О нас"],
-                ["#how", "Как работаем"],
-                ["#faq", "Вопросы"],
+                ["/", "О нас"],
+                ["/how-it-works", "Как работаем"],
+                ["/cases", "Кейсы"],
+                ["/faq", "Вопросы"],
+                ["/contacts", "Контакты"],
               ]}
             />
           </div>
@@ -80,9 +83,9 @@ function FooterCol({ title, links }: { title: string; links: [string, string][] 
       <ul className="mt-4 space-y-2.5 text-sm">
         {links.map(([href, label]) => (
           <li key={label}>
-            <a href={href} className="text-white/85 transition-colors hover:text-(--color-emerald-soft)">
+            <Link to={href} className="text-white/85 transition-colors hover:text-(--color-emerald-soft)">
               {label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
