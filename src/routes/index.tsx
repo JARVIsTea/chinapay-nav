@@ -14,39 +14,42 @@ import { LeadForm } from "@/components/landing/LeadForm";
 import { Footer } from "@/components/landing/Footer";
 import { useReveal } from "@/hooks/use-reveal";
 
+const SITE = "https://chinapay-nav.lovable.app";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Оплата счетов в Китай для бизнеса | Pay to China .ru — сопровождение ВЭД" },
+      { title: "Оплата счетов в Китай для бизнеса | Pay to China — сопровождение ВЭД" },
       {
         name: "description",
         content:
-          "Pay to China .ru — оплата инвойсов китайским поставщикам для юридических лиц. Сопровождение ВЭД, документы, персональный менеджер. Прозрачные условия и сроки.",
+          "Pay to China — оплата инвойсов китайским поставщикам для юридических лиц. Сопровождение ВЭД, документы, персональный менеджер. Курс ¥ → ₽ 11.25 + 0.5%.",
       },
-      { property: "og:title", content: "Pay to China .ru — оплата счетов в Китай для бизнеса" },
+      { property: "og:title", content: "Pay to China — оплата счетов в Китай для бизнеса" },
       {
         property: "og:description",
         content:
           "Оплата инвойсов в Китай, сопровождение ВЭД и поддержка импортных сделок. Работаем с юридическими лицами.",
       },
-      { property: "og:url", content: "/" },
-      { name: "twitter:title", content: "Pay to China .ru — оплата счетов в Китай для бизнеса" },
+      { property: "og:url", content: SITE + "/" },
+      { name: "twitter:title", content: "Pay to China — оплата счетов в Китай для бизнеса" },
       {
         name: "twitter:description",
         content: "Оплата инвойсов китайским поставщикам с полным сопровождением ВЭД.",
       },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: SITE + "/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "Pay to China .ru",
+          name: "Pay to China",
+          alternateName: "Pay to China .ru",
           description:
             "Оплата счетов и инвойсов в Китай для юридических лиц с сопровождением ВЭД.",
-          url: "/",
+          url: SITE,
           contactPoint: {
             "@type": "ContactPoint",
             telephone: "+7-996-845-70-51",
@@ -54,6 +57,21 @@ export const Route = createFileRoute("/")({
             email: "fedorov1991kzn@gmail.com",
             areaServed: "RU",
             availableLanguage: ["Russian"],
+          },
+          sameAs: ["https://t.me/sup_port_best"],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Pay to China",
+          url: SITE,
+          potentialAction: {
+            "@type": "SearchAction",
+            target: `${SITE}/?q={search_term_string}`,
+            "query-input": "required name=search_term_string",
           },
         }),
       },
