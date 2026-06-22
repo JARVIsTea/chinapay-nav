@@ -81,12 +81,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#0a0a0c" },
+      {
+        name: "description",
+        content:
+          "Pay to China — платежи в Китай за 24 часа. Оплата инвойсов поставщикам в юанях и долларах из России: переводы юрлицам, физлицам и на Alipay/WeChat без комиссий банков-посредников.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Pay to China .ru" },
+      { property: "og:locale", content: "ru_RU" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "apple-touch-icon", href: "/favicon.svg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -95,6 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
