@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 
 const links = [
-  { href: "#advantages", label: "Преимущества" },
-  { href: "#how", label: "Как работает" },
-  { href: "#acceptance", label: "Документы" },
-  { href: "#cases", label: "Кейсы" },
-  { href: "#services", label: "Услуги" },
-  { href: "#faq", label: "Вопросы" },
-];
+  { to: "/services", label: "Услуги" },
+  { to: "/how-it-works", label: "Как работает" },
+  { to: "/cases", label: "Кейсы" },
+  { to: "/faq", label: "Вопросы" },
+  { to: "/contacts", label: "Контакты" },
+] as const;
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -29,38 +28,39 @@ export function Navbar() {
       }`}
     >
       <div className="container-page flex h-12 items-center justify-between text-white">
-        <a
-          href="#top"
+        <Link
+          to="/"
           className="font-display text-[15px] font-semibold tracking-tight bg-[linear-gradient(90deg,#60a5fa_0%,#a78bfa_50%,#f87171_100%)] bg-clip-text text-transparent"
         >
           Pay to China
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
+            <Link
+              key={l.to}
+              to={l.to}
               className="text-[12px] font-normal text-white/75 transition-colors hover:text-white"
+              activeProps={{ className: "text-[12px] font-medium text-white" }}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <a
-          href="#contact"
+        <Link
+          to="/contacts"
           className="hidden text-[12px] font-normal text-white/75 transition-colors hover:text-white lg:inline"
         >
           Связаться ›
-        </a>
+        </Link>
 
-        <a
-          href="#contact"
+        <Link
+          to="/contacts"
           className="inline-flex h-8 items-center rounded-full bg-(--color-emerald) px-3 text-[12px] font-semibold text-white lg:hidden"
         >
           Связаться
-        </a>
+        </Link>
       </div>
     </header>
   );
