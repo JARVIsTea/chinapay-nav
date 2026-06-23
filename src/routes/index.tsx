@@ -99,7 +99,7 @@ export const Route = createFileRoute("/")({
               availableLanguage: ["Russian"],
             },
           ],
-          sameAs: ["https://t.me/sup_port_best"],
+          sameAs: SAME_AS,
         }),
       },
       {
