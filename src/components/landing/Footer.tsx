@@ -33,6 +33,7 @@ export function Footer() {
                 ["/", "О нас"],
                 ["/how-it-works", "Как работаем"],
                 ["/cases", "Кейсы"],
+                ["/blog", "Блог"],
                 ["/faq", "Вопросы"],
                 ["/contacts", "Контакты"],
               ]}
