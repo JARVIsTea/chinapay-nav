@@ -72,7 +72,16 @@ const CTA = ({ children = "Получить расчёт по вашему ин�
     </Link>
   </div>
 );
-const InlineLink = ({ to, children }: { to: string; children: ReactNode }) => (
+const PostLink = ({ slug, children }: { slug: string; children: ReactNode }) => (
+  <Link
+    to="/blog/$slug"
+    params={{ slug }}
+    className="text-(--color-emerald) underline-offset-4 hover:underline"
+  >
+    {children}
+  </Link>
+);
+const PageLink = ({ to, children }: { to: "/services" | "/contacts" | "/faq" | "/how-it-works" | "/cases"; children: ReactNode }) => (
   <Link to={to} className="text-(--color-emerald) underline-offset-4 hover:underline">
     {children}
   </Link>
