@@ -139,7 +139,7 @@ export const BLOG_POSTS: BlogPost[] = [
           <li>
             <b>Оплата физлицу или на Alipay/WeChat.</b> Подходит для закупок у мелких
             производителей и на 1688. Подробнее — в материале{" "}
-            <InlineLink to="/blog/$slug" children="про Alipay и WeChat Pay" />.
+            <PostLink slug="alipay-wechat-oplata-iz-rossii">про Alipay и WeChat Pay</PostLink>.
           </li>
         </UL>
 
@@ -199,7 +199,7 @@ export const BLOG_POSTS: BlogPost[] = [
         </UL>
         <P>
           Детальный разбор пакета — в статье{" "}
-          <InlineLink to="/blog/$slug" children="«ВЭД с Китаем: документы для оплаты»" />.
+          <PostLink slug="ved-dokumenty-dlya-oplaty-invoysa">«ВЭД с Китаем: документы для оплаты»</PostLink>.
         </P>
 
         <H2 id="oshibki">Частые ошибки при оплате</H2>
@@ -319,7 +319,7 @@ export const BLOG_POSTS: BlogPost[] = [
           С точки зрения 181-И ЦБ РФ оплата в юанях ничем не отличается от оплаты в
           долларах: тот же контракт, тот же инвойс, та же постановка на учёт при сумме
           от 3 млн ₽. Подробности — в гайде{" "}
-          <InlineLink to="/blog/$slug" children="по валютному контролю" />.
+          <PostLink slug="valyutnyy-kontrol-pri-oplate-v-kitay">по валютному контролю</PostLink>.
         </P>
 
         <CTA>Рассчитать оплату в юанях</CTA>
@@ -707,7 +707,7 @@ export const BLOG_POSTS: BlogPost[] = [
           платёж до бенефициара, либо вернуть деньги. Поэтому фиксируйте срок (обычно
           5–7 рабочих дней) и санкции за нарушение прямо в договоре. Подробнее о
           документах — в нашем гайде по{" "}
-          <InlineLink to="/blog/$slug" children="документам ВЭД" />.
+          <PostLink slug="ved-dokumenty-dlya-oplaty-invoysa">документам ВЭД</PostLink>.
         </P>
 
         <CTA>Получить условия от агента</CTA>
