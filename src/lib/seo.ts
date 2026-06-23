@@ -1,4 +1,4 @@
-const SITE = "https://chinapay-nav.lovable.app";
+const SITE = "https://pay-to-china.ru";
 
 export const ORG_JSON_LD = {
   "@context": "https://schema.org",
