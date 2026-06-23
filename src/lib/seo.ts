@@ -1,5 +1,12 @@
 const SITE = "https://pay-to-china.ru";
 
+// Официальные профили компании для schema.org sameAs.
+// Добавьте сюда новые URL (VK, YouTube, Дзен, Instagram, RuTube и т.п.) — они
+// автоматически появятся в Organization-разметке на главной и /contacts.
+export const SAME_AS: string[] = [
+  "https://t.me/sup_port_best",
+];
+
 export const ORG_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -16,7 +23,7 @@ export const ORG_JSON_LD = {
     areaServed: "RU",
     availableLanguage: ["Russian"],
   },
-  sameAs: ["https://t.me/sup_port_best"],
+  sameAs: SAME_AS,
 };
 
 export function breadcrumbJsonLd(items: { name: string; path: string }[]) {

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/landing/PageLayout";
 import { LeadForm } from "@/components/landing/LeadForm";
-import { breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
+import { breadcrumbJsonLd, SITE_URL, SAME_AS } from "@/lib/seo";
 import { Mail, MessageCircle, Phone, MessagesSquare } from "lucide-react";
 
 const TITLE = "Контакты — Pay to China | связаться с менеджером по оплате в Китай";
@@ -49,7 +49,7 @@ export const Route = createFileRoute("/contacts")({
               availableLanguage: ["Russian"],
             },
           ],
-          sameAs: ["https://t.me/sup_port_best"],
+          sameAs: SAME_AS,
         }),
       },
       {

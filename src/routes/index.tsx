@@ -13,6 +13,7 @@ import { Faq } from "@/components/landing/Faq";
 import { LeadForm } from "@/components/landing/LeadForm";
 import { Footer } from "@/components/landing/Footer";
 import { useReveal } from "@/hooks/use-reveal";
+import { SAME_AS } from "@/lib/seo";
 
 const SITE = "https://pay-to-china.ru";
 const OG_IMAGE = SITE + "/og-image.jpg";
@@ -98,7 +99,7 @@ export const Route = createFileRoute("/")({
               availableLanguage: ["Russian"],
             },
           ],
-          sameAs: ["https://t.me/sup_port_best"],
+          sameAs: SAME_AS,
         }),
       },
       {
