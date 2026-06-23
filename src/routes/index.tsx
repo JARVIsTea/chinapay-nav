@@ -14,7 +14,8 @@ import { LeadForm } from "@/components/landing/LeadForm";
 import { Footer } from "@/components/landing/Footer";
 import { useReveal } from "@/hooks/use-reveal";
 
-const SITE = "https://chinapay-nav.lovable.app";
+const SITE = "https://pay-to-china.ru";
+const OG_IMAGE = SITE + "/og-image.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,11 +33,16 @@ export const Route = createFileRoute("/")({
           "Оплата инвойсов в Китай, сопровождение ВЭД и поддержка импортных сделок. Работаем с юридическими лицами.",
       },
       { property: "og:url", content: SITE + "/" },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Pay to China — оплата инвойсов в Китай за 24 часа" },
       { name: "twitter:title", content: "Pay to China — оплата счетов в Китай для бизнеса" },
       {
         name: "twitter:description",
         content: "Оплата инвойсов китайским поставщикам с полным сопровождением ВЭД.",
       },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [{ rel: "canonical", href: SITE + "/" }],
     scripts: [
