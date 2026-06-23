@@ -49,7 +49,7 @@ export const Route = createFileRoute("/contacts")({
               availableLanguage: ["Russian"],
             },
           ],
-          sameAs: ["https://t.me/sup_port_best"],
+          sameAs: SAME_AS,
         }),
       },
       {
