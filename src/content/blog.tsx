@@ -722,7 +722,6 @@ export const BLOG_POSTS: BlogPost[] = [
       </>
     ),
   },
-,
 
   {
     slug: "vtb-shanghai-oplata-v-kitay",
