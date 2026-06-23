@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chinapay-nav.lovable.app/sitemap.xml
+Sitemap: https://pay-to-china.ru/sitemap.xml
