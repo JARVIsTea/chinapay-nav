@@ -7,6 +7,14 @@ import vedCover from "@/assets/blog/ved-documents.jpg";
 import mobileCover from "@/assets/blog/mobile-payment-china.jpg";
 import currencyCover from "@/assets/blog/currency-control.jpg";
 import agentCover from "@/assets/blog/payment-agent.jpg";
+import vtbShanghaiCover from "@/assets/blog/vtb-shanghai.jpg";
+import formaA5A7Cover from "@/assets/blog/forma-a5-a7.jpg";
+import bankOfChinaCover from "@/assets/blog/bank-of-china.jpg";
+import oaeDirhamCover from "@/assets/blog/oae-dirham.jpg";
+import hongkongHkdCover from "@/assets/blog/hongkong-hkd.jpg";
+import alibabaCover from "@/assets/blog/1688-alibaba.jpg";
+import parallelImportCover from "@/assets/blog/parallel-import.jpg";
+import ndsImportCover from "@/assets/blog/nds-import.jpg";
 
 export type BlogPost = {
   slug: string;
