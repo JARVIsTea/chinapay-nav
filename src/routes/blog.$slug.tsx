@@ -142,7 +142,7 @@ function BlogPostPage() {
       <article className="container-page max-w-3xl pt-6 pb-20">
         <header>
           <div className="flex flex-wrap items-center gap-2 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
-            {post.tags.map((t) => (
+            {post.tags.map((t: string) => (
               <span
                 key={t}
                 className="rounded-full bg-(--color-emerald)/10 px-2.5 py-1 text-(--color-emerald)"
