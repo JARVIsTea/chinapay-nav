@@ -15,6 +15,11 @@ import hongkongHkdCover from "@/assets/blog/hongkong-hkd.jpg";
 import alibabaCover from "@/assets/blog/1688-alibaba.jpg";
 import parallelImportCover from "@/assets/blog/parallel-import.jpg";
 import ndsImportCover from "@/assets/blog/nds-import.jpg";
+import oplataTovarCover from "@/assets/blog/oplata-tovar-china.jpg";
+import postavshchikiCover from "@/assets/blog/postavshchiki-china.jpg";
+import alipayChinaCover from "@/assets/blog/alipay-china-payment.jpg";
+import alipayPopolnenieCover from "@/assets/blog/alipay-popolnenie.jpg";
+import usdtYuanCover from "@/assets/blog/usdt-yuan.jpg";
 
 export type BlogPost = {
   slug: string;
