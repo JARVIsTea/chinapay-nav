@@ -18,6 +18,9 @@ import { Route as CasesRouteImport } from './routes/cases'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as ServicesNonresidentRubleRouteImport } from './routes/services.nonresident-ruble'
+import { Route as ServicesChinaLocalPaymentsRouteImport } from './routes/services.china-local-payments'
+import { Route as ServicesAlipayWechatRouteImport } from './routes/services.alipay-wechat'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -65,6 +68,23 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/',
   getParentRoute: () => BlogRoute,
 } as any)
+const ServicesNonresidentRubleRoute =
+  ServicesNonresidentRubleRouteImport.update({
+    id: '/nonresident-ruble',
+    path: '/nonresident-ruble',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesChinaLocalPaymentsRoute =
+  ServicesChinaLocalPaymentsRouteImport.update({
+    id: '/china-local-payments',
+    path: '/china-local-payments',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesAlipayWechatRoute = ServicesAlipayWechatRouteImport.update({
+  id: '/alipay-wechat',
+  path: '/alipay-wechat',
+  getParentRoute: () => ServicesRoute,
+} as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -78,9 +98,12 @@ export interface FileRoutesByFullPath {
   '/contacts': typeof ContactsRoute
   '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/services/alipay-wechat': typeof ServicesAlipayWechatRoute
+  '/services/china-local-payments': typeof ServicesChinaLocalPaymentsRoute
+  '/services/nonresident-ruble': typeof ServicesNonresidentRubleRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
@@ -89,9 +112,12 @@ export interface FileRoutesByTo {
   '/contacts': typeof ContactsRoute
   '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/services/alipay-wechat': typeof ServicesAlipayWechatRoute
+  '/services/china-local-payments': typeof ServicesChinaLocalPaymentsRoute
+  '/services/nonresident-ruble': typeof ServicesNonresidentRubleRoute
   '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
@@ -102,9 +128,12 @@ export interface FileRoutesById {
   '/contacts': typeof ContactsRoute
   '/faq': typeof FaqRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/services/alipay-wechat': typeof ServicesAlipayWechatRoute
+  '/services/china-local-payments': typeof ServicesChinaLocalPaymentsRoute
+  '/services/nonresident-ruble': typeof ServicesNonresidentRubleRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
@@ -119,6 +148,9 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/blog/$slug'
+    | '/services/alipay-wechat'
+    | '/services/china-local-payments'
+    | '/services/nonresident-ruble'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -130,6 +162,9 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/blog/$slug'
+    | '/services/alipay-wechat'
+    | '/services/china-local-payments'
+    | '/services/nonresident-ruble'
     | '/blog'
   id:
     | '__root__'
@@ -142,6 +177,9 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/blog/$slug'
+    | '/services/alipay-wechat'
+    | '/services/china-local-payments'
+    | '/services/nonresident-ruble'
     | '/blog/'
   fileRoutesById: FileRoutesById
 }
@@ -152,7 +190,7 @@ export interface RootRouteChildren {
   ContactsRoute: typeof ContactsRoute
   FaqRoute: typeof FaqRoute
   HowItWorksRoute: typeof HowItWorksRoute
-  ServicesRoute: typeof ServicesRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
@@ -221,6 +259,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/services/nonresident-ruble': {
+      id: '/services/nonresident-ruble'
+      path: '/nonresident-ruble'
+      fullPath: '/services/nonresident-ruble'
+      preLoaderRoute: typeof ServicesNonresidentRubleRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/china-local-payments': {
+      id: '/services/china-local-payments'
+      path: '/china-local-payments'
+      fullPath: '/services/china-local-payments'
+      preLoaderRoute: typeof ServicesChinaLocalPaymentsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/alipay-wechat': {
+      id: '/services/alipay-wechat'
+      path: '/alipay-wechat'
+      fullPath: '/services/alipay-wechat'
+      preLoaderRoute: typeof ServicesAlipayWechatRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/blog/$slug': {
       id: '/blog/$slug'
       path: '/$slug'
@@ -243,6 +302,22 @@ const BlogRouteChildren: BlogRouteChildren = {
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
+interface ServicesRouteChildren {
+  ServicesAlipayWechatRoute: typeof ServicesAlipayWechatRoute
+  ServicesChinaLocalPaymentsRoute: typeof ServicesChinaLocalPaymentsRoute
+  ServicesNonresidentRubleRoute: typeof ServicesNonresidentRubleRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesAlipayWechatRoute: ServicesAlipayWechatRoute,
+  ServicesChinaLocalPaymentsRoute: ServicesChinaLocalPaymentsRoute,
+  ServicesNonresidentRubleRoute: ServicesNonresidentRubleRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRouteWithChildren,
@@ -250,7 +325,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactsRoute: ContactsRoute,
   FaqRoute: FaqRoute,
   HowItWorksRoute: HowItWorksRoute,
-  ServicesRoute: ServicesRoute,
+  ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
