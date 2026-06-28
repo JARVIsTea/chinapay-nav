@@ -27,8 +27,9 @@ jobs:
             cd /var/www/paytochina
             git fetch --all
             git reset --hard origin/main
-            ~/.bun/bin/bun install --frozen-lockfile || bun install
-            ~/.bun/bin/bun run build || bun run build
-            PORT=3000 pm2 restart paytochina --update-env || PORT=3000 pm2 start .output/server/index.mjs --name paytochina --update-env
+            export PATH="$HOME/.bun/bin:$PATH"
+            bun install --frozen-lockfile || bun install
+            NITRO_PRESET=node-server bun run build
+            HOST=0.0.0.0 PORT=3000 pm2 restart paytochina --update-env || HOST=0.0.0.0 PORT=3000 pm2 start .output/server/index.mjs --name paytochina --update-env
             pm2 save
           EOF
