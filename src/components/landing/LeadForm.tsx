@@ -22,6 +22,7 @@ const initial: FormState = { name: "", phone: "", company: "", amount: "", comme
 
 const TG_USERNAME = "sup_port_best";
 const EMAIL = "fedorov1991kzn@gmail.com";
+const INITIAL_CAPTCHA = { a: 6, b: 5, answer: 11 };
 
 function makeCaptcha() {
   const a = Math.floor(Math.random() * 8) + 2;
@@ -34,7 +35,7 @@ export function LeadForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [submitted, setSubmitted] = useState(false);
   const [pending, setPending] = useState(false);
-  const [captcha, setCaptcha] = useState(() => makeCaptcha());
+  const [captcha, setCaptcha] = useState(INITIAL_CAPTCHA);
   const [captchaInput, setCaptchaInput] = useState("");
 
   const update = (k: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
