@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "@/components/ui/sonner";
 import { Aurora } from "@/components/landing/Aurora";
 import { ExitIntent } from "@/components/landing/ExitIntent";
+import { ScrollProgress } from "@/components/landing/ScrollProgress";
 
 function NotFoundComponent() {
   return (
@@ -130,7 +131,8 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Aurora />
-      <div className="relative z-[2]">
+      <ScrollProgress />
+      <div className="relative z-[2] grain-overlay">
         <Outlet />
       </div>
       <Toaster position="top-center" richColors />

@@ -1,8 +1,36 @@
+"use client";
+import { useCountUp } from "@/hooks/use-count-up";
+
 const stats = [
-  { value: "1000+", label: "обработанных запросов" },
-  { value: "100+", label: "компаний-клиентов" },
-  { value: "1:1", label: "персональное сопровождение каждой сделки" },
-];
+  { target: 1000, suffix: "+", label: "обработанных запросов" },
+  { target: 100, suffix: "+", label: "компаний-клиентов" },
+  { target: 0, label: "персональное сопровождение каждой сделки", staticValue: "1:1" },
+] as const;
+
+function StatCard({
+  target,
+  suffix,
+  staticValue,
+  label,
+}: {
+  target: number;
+  suffix?: string;
+  staticValue?: string;
+  label: string;
+}) {
+  const { ref, value } = useCountUp(target);
+  return (
+    <div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className="gradient-border rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur"
+    >
+      <dt className="bg-gradient-to-br from-(--color-emerald-soft) to-(--color-emerald) bg-clip-text font-display text-4xl font-bold text-transparent tabular-nums md:text-5xl">
+        {staticValue ?? `${value.toLocaleString("ru-RU")}${suffix ?? ""}`}
+      </dt>
+      <dd className="mt-2 text-sm leading-snug text-white/70">{label}</dd>
+    </div>
+  );
+}
 
 export function TrustBlock() {
   return (
@@ -31,15 +59,7 @@ export function TrustBlock() {
             <div className="reveal lg:col-span-5">
               <dl className="grid gap-6 sm:grid-cols-3 lg:grid-cols-1">
                 {stats.map((s) => (
-                  <div
-                    key={s.label}
-                    className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur"
-                  >
-                    <dt className="bg-gradient-to-br from-(--color-emerald-soft) to-(--color-emerald) bg-clip-text font-display text-4xl font-bold text-transparent md:text-5xl">
-                      {s.value}
-                    </dt>
-                    <dd className="mt-2 text-sm leading-snug text-white/70">{s.label}</dd>
-                  </div>
+                  <StatCard key={s.label} {...s} />
                 ))}
               </dl>
             </div>

@@ -1,9 +1,40 @@
 "use client";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useMagnetic } from "@/hooks/use-magnetic";
+import { useTilt } from "@/hooks/use-tilt";
+
+const TYPED_WORDS = ["Платежи в Китай.", "Без границ."];
+
+function useTypewriter(words: string[], speed = 55, holdAfter = 600) {
+  const [text, setText] = useState("");
+  const [line, setLine] = useState(0);
+  useEffect(() => {
+    if (line >= words.length) return;
+    const target = words[line];
+    if (text.length < target.length) {
+      const id = setTimeout(() => setText(target.slice(0, text.length + 1)), speed);
+      return () => clearTimeout(id);
+    }
+    const id = setTimeout(() => {
+      setLine((l) => l + 1);
+      setText("");
+    }, holdAfter);
+    return () => clearTimeout(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [text, line]);
+
+  return { line, text };
+}
 
 export function Hero() {
   const reduce = useReducedMotion();
+  const magneticRef = useMagnetic<HTMLAnchorElement>(0.4, 140);
+  const tiltRef = useTilt<HTMLDivElement>(4);
+
+  const typing = useTypewriter(reduce ? [] : TYPED_WORDS);
+
   const fade = (delay = 0) => ({
     initial: { opacity: 0, y: reduce ? 0 : 18 },
     animate: { opacity: 1, y: 0 },
@@ -16,7 +47,6 @@ export function Hero() {
       className="relative isolate overflow-hidden pt-28 text-white md:pt-32"
       style={{ background: "#000" }}
     >
-      {/* ambient glow */}
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[820px] bg-hero-glow opacity-90" />
       <div
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[820px] opacity-[0.05]"
@@ -43,10 +73,25 @@ export function Hero() {
           {...fade(0.06)}
           className="mt-5 max-w-[14ch] font-display text-[44px] font-bold leading-[0.98] tracking-[-0.045em] text-white text-balance sm:text-[64px] md:max-w-[16ch] md:text-[88px] lg:text-[112px]"
         >
-          Платежи в Китай.
-          <span className="block bg-gradient-to-b from-white to-white/45 bg-clip-text text-transparent">
-            Без границ.
-          </span>
+          {reduce ? (
+            <>
+              Платежи в Китай.
+              <span className="block bg-gradient-to-b from-white to-white/45 bg-clip-text text-transparent">
+                Без границ.
+              </span>
+            </>
+          ) : (
+            <>
+              <span className={typing.line === 0 ? "typing-caret" : undefined}>
+                {typing.line === 0 ? typing.text : "Платежи в Китай."}
+              </span>
+              <span className="block bg-gradient-to-b from-white to-white/45 bg-clip-text text-transparent">
+                <span className={typing.line === 1 ? "typing-caret" : undefined}>
+                  {typing.line < 1 ? "\u00A0" : typing.line === 1 ? typing.text : "Без границ."}
+                </span>
+              </span>
+            </>
+          )}
         </motion.h1>
 
         <motion.p
@@ -62,8 +107,9 @@ export function Hero() {
           className="mt-10 flex flex-col items-center gap-3 sm:flex-row"
         >
           <a
+            ref={magneticRef}
             href="#contact"
-            className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-(--color-emerald) px-7 text-[15px] font-semibold text-white shadow-emerald transition-transform hover:scale-[1.02] active:scale-[0.98]"
+            className="glow-pulse group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-(--color-emerald) px-7 text-[15px] font-semibold text-white shadow-emerald transition-transform active:scale-[0.98]"
           >
             Оставить заявку
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -78,6 +124,7 @@ export function Hero() {
 
         <motion.div
           {...fade(0.3)}
+          ref={tiltRef}
           className="mt-16 grid w-full max-w-3xl grid-cols-3 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] text-center backdrop-blur-xl"
         >
           <Stat value="1–3 дня" label="срок зачисления" />
@@ -86,65 +133,6 @@ export function Hero() {
         </motion.div>
       </div>
     </section>
-  );
-}
-
-function CurrencyOrb({
-  symbol,
-  label,
-  sub,
-  hue,
-}: {
-  symbol: string;
-  label: string;
-  sub: string;
-  hue: "white" | "blue";
-}) {
-  const gradient =
-    hue === "white"
-      ? "radial-gradient(circle at 35% 30%, #ffffff 0%, #d0d4dc 45%, #4a4d55 100%)"
-      : "radial-gradient(circle at 35% 30%, oklch(0.78 0.14 250) 0%, oklch(0.55 0.22 255) 45%, oklch(0.25 0.15 260) 100%)";
-  return (
-    <div className="flex flex-col items-center">
-      <div
-        className="relative h-40 w-40 rounded-full md:h-52 md:w-52"
-        style={{
-          background: gradient,
-          boxShadow:
-            hue === "blue"
-              ? "0 30px 80px -20px oklch(0.55 0.22 255 / 0.6), inset 0 -10px 30px oklch(0 0 0 / 0.3)"
-              : "0 30px 80px -20px oklch(0 0 0 / 0.6), inset 0 -10px 30px oklch(0 0 0 / 0.25)",
-        }}
-      >
-        <span
-          className="absolute inset-0 flex items-center justify-center font-display text-6xl font-bold md:text-7xl"
-          style={{ color: hue === "white" ? "#1d1d1f" : "#ffffff", textShadow: "0 2px 8px rgba(0,0,0,0.15)" }}
-        >
-          {symbol}
-        </span>
-        <span className="absolute -inset-2 -z-10 rounded-full opacity-60 blur-2xl" style={{ background: gradient }} />
-      </div>
-      <div className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-white/50">{label}</div>
-      <div className="mt-1 font-display text-lg font-semibold text-white">{sub}</div>
-    </div>
-  );
-}
-
-function FlowBar() {
-  return (
-    <div className="relative flex items-center justify-center">
-      <div className="relative h-[2px] w-full max-w-[220px] overflow-hidden rounded-full bg-white/10 md:max-w-none">
-        <motion.div
-          className="absolute inset-y-0 left-0 w-1/3 rounded-full"
-          style={{ background: "linear-gradient(to right, transparent, oklch(0.62 0.18 250), transparent)" }}
-          animate={{ x: ["-100%", "300%"] }}
-          transition={{ duration: 2.6, ease: "easeInOut", repeat: Infinity }}
-        />
-      </div>
-      <div className="absolute -top-7 left-1/2 -translate-x-1/2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">
-        Прямой канал
-      </div>
-    </div>
   );
 }
 

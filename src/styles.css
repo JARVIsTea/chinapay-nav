@@ -319,3 +319,125 @@
 @media (prefers-reduced-motion: reduce) {
   .shimmer-text { animation: none; }
 }
+
+/* ===== Animated gradient border on hover (cards) ===== */
+.gradient-border {
+  position: relative;
+  isolation: isolate;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--gb-angle, 0deg),
+    transparent 0deg,
+    oklch(0.66 0.18 245 / 0.9) 90deg,
+    oklch(0.72 0.17 158 / 0.9) 180deg,
+    oklch(0.82 0.14 80 / 0.9) 270deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 1;
+  animation: gb-spin 6s linear infinite;
+}
+.gradient-border:hover::before { opacity: 1; }
+@property --gb-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes gb-spin {
+  to { --gb-angle: 360deg; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gradient-border::before { animation: none; }
+}
+
+/* ===== Mask reveal — clip-path from bottom ===== */
+.mask-reveal {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: clip-path;
+}
+.mask-reveal.is-visible {
+  clip-path: inset(0 0 0 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .mask-reveal { clip-path: none !important; transition: none !important; }
+}
+
+/* ===== Glow pulse under CTA ===== */
+.glow-pulse {
+  position: relative;
+}
+.glow-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: inherit;
+  background: radial-gradient(closest-side, oklch(0.72 0.17 158 / 0.55), transparent 70%);
+  filter: blur(20px);
+  z-index: -1;
+  animation: glow-breathe 3.5s ease-in-out infinite;
+}
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.55; transform: scale(0.98); }
+  50%      { opacity: 0.95; transform: scale(1.06); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glow-pulse::after { animation: none; }
+}
+
+/* ===== Global grain overlay (apply once on body wrapper) ===== */
+.grain-overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: 0.45;
+  mix-blend-mode: overlay;
+}
+
+/* ===== Marquee pause helper ===== */
+.marquee-track {
+  animation-play-state: running;
+}
+.marquee-host:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ===== Smooth scroll site-wide ===== */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ===== Typing cursor ===== */
+.typing-caret::after {
+  content: "▎";
+  display: inline-block;
+  margin-left: 0.08em;
+  color: oklch(0.72 0.17 158);
+  animation: caret-blink 1s steps(1) infinite;
+}
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+

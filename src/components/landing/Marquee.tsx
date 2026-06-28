@@ -19,7 +19,7 @@ export function Marquee() {
   const row = [...items, ...items];
 
   return (
-    <div className="fixed inset-x-0 top-0 z-[60] flex h-9 items-center overflow-hidden border-b border-(--color-emerald)/20 bg-black/85 backdrop-blur-md">
+    <div className="marquee-host group fixed inset-x-0 top-0 z-[60] flex h-9 items-center overflow-hidden border-b border-(--color-emerald)/20 bg-black/85 backdrop-blur-md">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-black to-transparent"
@@ -32,6 +32,7 @@ export function Marquee() {
         className="flex w-max gap-8"
         animate={reduce ? undefined : { x: ["0%", "-50%"] }}
         transition={{ duration: 38, ease: "linear", repeat: Infinity }}
+        whileHover={reduce ? undefined : { transition: { duration: 120 } }}
       >
         {row.map(({ icon: Icon, text }, i) => (
           <div
