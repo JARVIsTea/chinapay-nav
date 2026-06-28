@@ -41,7 +41,7 @@ export function Services() {
             return (
               <article
                 key={title}
-                className={`reveal group relative flex flex-col gap-4 rounded-2xl border p-7 shadow-elev-1 transition-all duration-300 hover:-translate-y-1 hover:shadow-elev-2 ${
+                className={`reveal gradient-border group relative flex flex-col gap-4 rounded-2xl border p-7 shadow-elev-1 transition-all duration-300 hover:-translate-y-1 hover:shadow-elev-2 ${
                   featured
                     ? "lg:col-span-2 border-white/10 text-white"
                     : "border-border bg-card"
