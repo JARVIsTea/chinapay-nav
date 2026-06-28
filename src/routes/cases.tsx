@@ -41,6 +41,7 @@ export const Route = createFileRoute("/cases")({
 function CasesPage() {
   return (
     <PageLayout breadcrumbs={[{ label: "Главная", to: "/" }, { label: "Кейсы" }]}>
+      <h1 className="sr-only">Кейсы оплаты в Китай — реальные сделки Pay to China</h1>
       <Cases />
       <TrustBlock />
       <LeadForm />

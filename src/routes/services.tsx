@@ -51,6 +51,7 @@ export const Route = createFileRoute("/services")({
 function ServicesPage() {
   return (
     <PageLayout breadcrumbs={[{ label: "Главная", to: "/" }, { label: "Услуги" }]}>
+      <h1 className="sr-only">Услуги Pay to China — оплата инвойсов в Китай и сопровождение ВЭД</h1>
       <Services />
       <Acceptance />
       <LeadForm />
