@@ -136,6 +136,7 @@ function Index() {
         <Hero />
         <Advantages />
         <HowItWorks />
+        <SwiftBanner />
         <Corridor />
         <Acceptance />
         <Cases />
