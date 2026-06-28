@@ -39,41 +39,50 @@ export function Services() {
         </div>
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {items.map(({ icon: Icon, title, text }, i) => {
+          {items.map(({ icon: Icon, title, text, to }, i) => {
             const featured = i === 0;
-            return (
-              <article
-                key={title}
-                className={`reveal gradient-border group relative flex flex-col gap-4 rounded-2xl border p-7 shadow-elev-1 transition-all duration-300 hover:-translate-y-1 hover:shadow-elev-2 ${
-                  featured
-                    ? "lg:col-span-2 border-white/10 text-white"
-                    : "border-border bg-card"
-                }`}
-                style={{
-                  transitionDelay: `${i * 50}ms`,
-                  ...(featured ? { backgroundImage: "var(--gradient-navy)" } : {}),
-                }}
-              >
-                <div className="flex items-start gap-4">
-                  <span
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${
-                      featured ? "bg-white/10 text-(--color-emerald)" : "bg-gradient-navy text-(--color-emerald) shadow-elev-2"
-                    }`}
-                  >
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-start justify-between gap-2">
-                      <h3 className={`font-display text-base font-semibold ${featured ? "text-white" : "text-foreground"}`}>{title}</h3>
-                      <ArrowUpRight className={`h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${featured ? "text-white/60" : "text-muted-foreground"}`} />
-                    </div>
-                    <p className={`mt-1.5 text-sm leading-relaxed ${featured ? "text-white/70" : "text-muted-foreground"}`}>{text}</p>
+            const className = `reveal gradient-border group relative flex flex-col gap-4 rounded-2xl border p-7 shadow-elev-1 transition-all duration-300 hover:-translate-y-1 hover:shadow-elev-2 ${
+              featured ? "lg:col-span-2 border-white/10 text-white" : "border-border bg-card"
+            }`;
+            const style = {
+              transitionDelay: `${i * 50}ms`,
+              ...(featured ? { backgroundImage: "var(--gradient-navy)" } : {}),
+            };
+            const inner = (
+              <div className="flex items-start gap-4">
+                <span
+                  className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${
+                    featured ? "bg-white/10 text-(--color-emerald)" : "bg-gradient-navy text-(--color-emerald) shadow-elev-2"
+                  }`}
+                >
+                  <Icon className="h-5 w-5" />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className={`font-display text-base font-semibold ${featured ? "text-white" : "text-foreground"}`}>{title}</h3>
+                    <ArrowUpRight className={`h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${featured ? "text-white/60" : "text-muted-foreground"}`} />
                   </div>
+                  <p className={`mt-1.5 text-sm leading-relaxed ${featured ? "text-white/70" : "text-muted-foreground"}`}>{text}</p>
+                  {to && (
+                    <span className={`mt-3 inline-flex items-center gap-1 text-xs font-semibold ${featured ? "text-white" : "text-foreground"}`}>
+                      Подробнее об услуге →
+                    </span>
+                  )}
                 </div>
+              </div>
+            );
+            return to ? (
+              <Link key={title} to={to} className={className} style={style}>
+                {inner}
+              </Link>
+            ) : (
+              <article key={title} className={className} style={style}>
+                {inner}
               </article>
             );
           })}
         </div>
+
       </div>
     </section>
   );
