@@ -1,32 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/landing/PageLayout";
-import { Faq } from "@/components/landing/Faq";
+import { Faq, faqs } from "@/components/landing/Faq";
 import { LeadForm } from "@/components/landing/LeadForm";
 import { breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
 
 const TITLE = "Вопросы и ответы об оплате счетов в Китай | Pay to China";
 const DESC =
-  "Частые вопросы об оплате инвойсов в Китай: документы, сроки переводов, валюты, поставщики, сопровождение ВЭД. Ответы экспертов Pay to China.";
+  "Частые вопросы об оплате в Китай: инвойсы, Alipay, WeChat Pay, сроки 15 минут, карты РФ, документы и сопровождение ВЭД.";
 const PATH = "/faq";
-
-const FAQS = [
-  {
-    q: "Какие документы необходимы для оплаты?",
-    a: "Минимальный пакет — инвойс от поставщика и реквизиты вашей компании. В зависимости от суммы и характера сделки потребуется внешнеторговый контракт, спецификация, упаковочный лист и подтверждение цели платежа.",
-  },
-  {
-    q: "С какими поставщиками вы работаете?",
-    a: "Работаем с заводами, трейдерами и торговыми компаниями по всему Китаю — Гуанчжоу, Иу, Шэньчжэнь, Шанхай, Нинбо. Принимаем платежи в юанях и долларах США.",
-  },
-  {
-    q: "Сколько времени занимает процесс?",
-    a: "Согласование условий и подготовка документов обычно занимают 1 рабочий день. Сам платёж проходит за 1–3 рабочих дня в зависимости от валюты и банка получателя.",
-  },
-  {
-    q: "Как проходит сопровождение сделки?",
-    a: "За вашей компанией закрепляется персональный менеджер. Он проверяет документы, согласует условия, контролирует проведение платежа и передаёт закрывающие документы для бухгалтерии и валютного контроля.",
-  },
-];
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
@@ -47,7 +28,7 @@ export const Route = createFileRoute("/faq")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: FAQS.map((f) => ({
+          mainEntity: faqs.map((f) => ({
             "@type": "Question",
             name: f.q,
             acceptedAnswer: { "@type": "Answer", text: f.a },
