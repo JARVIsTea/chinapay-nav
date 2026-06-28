@@ -29,6 +29,6 @@ jobs:
             git reset --hard origin/main
             ~/.bun/bin/bun install --frozen-lockfile || bun install
             ~/.bun/bin/bun run build || bun run build
-            pm2 restart paytochina --update-env
+            PORT=3000 pm2 restart paytochina --update-env || PORT=3000 pm2 start .output/server/index.mjs --name paytochina --update-env
             pm2 save
           EOF

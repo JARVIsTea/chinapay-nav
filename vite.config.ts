@@ -12,4 +12,9 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  nitro: {
+    // Self-hosting on VPS/PM2 needs a real Node HTTP server.
+    // Lovable's hosted publish still forces its own cloud target during its build.
+    preset: "node-server",
+  },
 });
