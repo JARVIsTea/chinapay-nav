@@ -5,7 +5,7 @@ import { Ship, Banknote, FileCheck2, ShieldCheck, Clock, Globe2, TrendingUp, Sma
 const items = [
   { icon: Banknote, text: "Курс ¥ → ₽: 11.25 + 0.5%" },
   { icon: Clock, text: "Зачисление 1–2 рабочих дня" },
-  { icon: Smartphone, text: "Переводы на Alipay и WeChat Pay — от 1000 CNY" },
+  { icon: Smartphone, text: "Alipay и WeChat Pay — от 1000 CNY за 15 минут" },
   { icon: Globe2, text: "SWIFT-переводы от 0.6% — юр. и физ. лица" },
   { icon: Ship, text: "CNY · USD · AED · HKD" },
   { icon: FileCheck2, text: "Полный пакет документов" },
