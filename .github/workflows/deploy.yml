@@ -25,8 +25,10 @@ jobs:
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             set -e
             cd /var/www/paytochina
+            git config --global --add safe.directory /var/www/paytochina
             git fetch --all
             git reset --hard origin/main
+            echo "Deploying commit: $(git rev-parse --short HEAD) - $(git log -1 --pretty=%s)"
             export PATH="$HOME/.bun/bin:$PATH"
             bun install --frozen-lockfile || bun install
             NITRO_PRESET=node-server bun run build
