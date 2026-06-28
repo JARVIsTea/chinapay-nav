@@ -46,10 +46,10 @@ export function Aurora() {
       <div className="aurora-blob aurora-c" />
       <div
         ref={spotRef}
-        className="absolute hidden h-[520px] w-[520px] rounded-full opacity-[0.18] blur-3xl md:block"
+        className="absolute hidden h-[520px] w-[520px] rounded-full opacity-[0.28] blur-3xl md:block"
         style={{
           background:
-            "radial-gradient(closest-side, oklch(0.78 0.14 158 / 0.55), transparent 70%)",
+            "radial-gradient(closest-side, oklch(0.78 0.14 158 / 0.75), oklch(0.66 0.18 245 / 0.35) 45%, transparent 70%)",
           willChange: "transform",
         }}
       />
