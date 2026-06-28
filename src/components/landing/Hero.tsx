@@ -99,6 +99,7 @@ export function Hero() {
           className="mt-7 max-w-xl text-lg leading-relaxed text-white/65 md:text-xl"
         >
           Оплата инвойсов китайским поставщикам со счёта вашей компании.
+          Работаем и с физлицами — пополнение Alipay и WeChat за 15 минут.
           Документы, валютный контроль и персональный менеджер — под ключ.
         </motion.p>
 
