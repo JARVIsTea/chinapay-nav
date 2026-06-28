@@ -57,6 +57,7 @@ export const Route = createFileRoute("/how-it-works")({
 function HowPage() {
   return (
     <PageLayout breadcrumbs={[{ label: "Главная", to: "/" }, { label: "Как работает" }]}>
+      <h1 className="sr-only">Как работает оплата счетов в Китай — этапы сделки Pay to China</h1>
       <HowItWorks />
       <Corridor />
       <PaymentFlow />

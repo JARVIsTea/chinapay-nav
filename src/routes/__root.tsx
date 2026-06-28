@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Pay to China — платежи в Китай за 24 часа. Оплата инвойсов поставщикам в юанях и долларах из России: переводы юрлицам, физлицам и на Alipay/WeChat без комиссий банков-посредников.",
+          "Pay to China — оплата инвойсов в Китай за 1–3 дня: переводы поставщикам в юанях и долларах, сопровождение ВЭД и закрывающие документы.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Pay to China .ru" },

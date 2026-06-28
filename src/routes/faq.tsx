@@ -71,6 +71,7 @@ export const Route = createFileRoute("/faq")({
 function FaqPage() {
   return (
     <PageLayout breadcrumbs={[{ label: "Главная", to: "/" }, { label: "Вопросы" }]}>
+      <h1 className="sr-only">Вопросы и ответы об оплате счетов в Китай — Pay to China</h1>
       <Faq />
       <LeadForm />
     </PageLayout>
