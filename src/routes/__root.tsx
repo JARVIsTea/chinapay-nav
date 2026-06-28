@@ -131,7 +131,8 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Aurora />
-      <div className="relative z-[2]">
+      <ScrollProgress />
+      <div className="relative z-[2] grain-overlay">
         <Outlet />
       </div>
       <Toaster position="top-center" richColors />
