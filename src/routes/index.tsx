@@ -9,6 +9,7 @@ import { TrustBlock } from "@/components/landing/TrustBlock";
 import { Cases } from "@/components/landing/Cases";
 import { Acceptance } from "@/components/landing/Acceptance";
 import { Corridor } from "@/components/landing/Corridor";
+import { SwiftBanner } from "@/components/landing/SwiftBanner";
 import { Faq } from "@/components/landing/Faq";
 import { LeadForm } from "@/components/landing/LeadForm";
 import { Footer } from "@/components/landing/Footer";
@@ -135,6 +136,7 @@ function Index() {
         <Hero />
         <Advantages />
         <HowItWorks />
+        <SwiftBanner />
         <Corridor />
         <Acceptance />
         <Cases />
