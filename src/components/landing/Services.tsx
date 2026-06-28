@@ -1,9 +1,12 @@
-import { ArrowUpRight, CreditCard, Briefcase, MessagesSquare, Package, FileSearch, Send } from "lucide-react";
+import { ArrowUpRight, CreditCard, Briefcase, MessagesSquare, Package, FileSearch, Send, Smartphone, Repeat, Banknote } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 const items = [
   { icon: CreditCard, title: "Оплата инвойсов в Китай", text: "Переводы поставщикам в юанях и долларах с полным документальным сопровождением." },
-  { icon: Send, title: "SWIFT-переводы — от 0.6%", text: "Принимаем и отправляем SWIFT-платежи для юридических и физических лиц. Комиссия от 0.6%, валюты USD, EUR, CNY, AED, HKD." },
+  { icon: Smartphone, title: "Alipay и WeChat для физлиц", text: "Пополнение Alipay и WeChat Pay с российской карты за 15 минут. Для туристов, студентов и закупок на Taobao/1688." },
+  { icon: Repeat, title: "Приём и отправка платежей внутри Китая", text: "Локальные расчёты между китайскими счетами и кошельками: CNY → CNY, оплата поставщикам, фабрикам, логистам." },
+  { icon: Banknote, title: "Отправка нерезидентского рубля", text: "Переводы в рублях на нерезидентские счета и обратно — для агентских схем и расчётов с зарубежными контрагентами." },
+  { icon: Send, title: "SWIFT-переводы — от 0.6%", text: "Принимаем и отправляем SWIFT-платежи для юридических и физических лиц. Валюты USD, EUR, CNY, AED, HKD." },
   { icon: Briefcase, title: "Сопровождение ВЭД", text: "Полный цикл внешнеэкономической деятельности: контракты, валютный контроль, отчётность." },
   { icon: MessagesSquare, title: "Консультации по международным расчётам", text: "Подбираем оптимальную схему расчётов под вашу сделку и юрисдикцию." },
   { icon: Package, title: "Поддержка импортных сделок", text: "Помогаем выстроить процесс закупки и платежей при работе с азиатскими поставщиками." },
