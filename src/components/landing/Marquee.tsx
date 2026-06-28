@@ -7,6 +7,7 @@ const items = [
   { icon: Clock, text: "Зачисление 1–2 рабочих дня" },
   { icon: Smartphone, text: "Переводы на Alipay" },
   { icon: MessageCircle, text: "Переводы на WeChat Pay" },
+  { icon: Globe2, text: "SWIFT-переводы от 0.6% — юр. и физ. лица" },
   { icon: Ship, text: "CNY · USD · AED · HKD" },
   { icon: FileCheck2, text: "Полный пакет документов" },
   { icon: ShieldCheck, text: "Валютный контроль под ключ" },
