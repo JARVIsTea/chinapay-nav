@@ -60,7 +60,7 @@ export function Advantages() {
           {items.map(({ icon: Icon, title, text }, i) => (
             <div
               key={title}
-              className="reveal group relative overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-elev-1 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/15 hover:shadow-elev-2"
+              className="reveal gradient-border group relative overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-elev-1 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/15 hover:shadow-elev-2"
               style={{ transitionDelay: `${i * 40}ms` }}
             >
               <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: "var(--gradient-hero-glow)" }} />
