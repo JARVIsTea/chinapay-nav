@@ -70,22 +70,22 @@
   --radius: 0.875rem;
 
   /* Institutional noir — dark base, emerald money + sapphire channel + gold value */
-  --navy-deep: oklch(0.13 0.005 260);     /* #0a0a0c — deepest */
-  --navy: oklch(0.16 0.006 260);          /* #111114 — page bg */
-  --navy-soft: oklch(0.20 0.008 260);     /* card surface */
+  --navy-deep: oklch(0.13 0.005 260);
+  --navy: oklch(0.16 0.006 260);
+  --navy-soft: oklch(0.20 0.008 260);
   --graphite: oklch(0.32 0.01 260);
   --graphite-soft: oklch(0.62 0.01 260);
   --mist: oklch(0.98 0.003 260);
 
-  --emerald: oklch(0.72 0.17 158);        /* #10b981 — money flow */
+  --emerald: oklch(0.72 0.17 158);
   --emerald-soft: oklch(0.82 0.15 158);
-  --sapphire: oklch(0.66 0.18 245);       /* #3b82f6 — channel / data */
+  --sapphire: oklch(0.66 0.18 245);
   --sapphire-soft: oklch(0.78 0.14 245);
-  --gold: oklch(0.82 0.14 80);            /* CNY accent */
+  --gold: oklch(0.82 0.14 80);
 
-  --background: oklch(0.13 0.005 260);    /* dark page */
-  --foreground: oklch(0.97 0.003 260);    /* near white */
-  --card: oklch(0.17 0.006 260);          /* slightly lifted */
+  --background: oklch(0.13 0.005 260);
+  --foreground: oklch(0.97 0.003 260);
+  --card: oklch(0.17 0.006 260);
   --card-foreground: oklch(0.97 0.003 260);
   --popover: oklch(0.17 0.006 260);
   --popover-foreground: oklch(0.97 0.003 260);
