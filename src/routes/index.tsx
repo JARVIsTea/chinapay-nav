@@ -13,6 +13,7 @@ import { SwiftBanner } from "@/components/landing/SwiftBanner";
 import { Faq } from "@/components/landing/Faq";
 import { LeadForm } from "@/components/landing/LeadForm";
 import { Footer } from "@/components/landing/Footer";
+import { RateTracker } from "@/components/landing/RateTracker";
 import { useReveal } from "@/hooks/use-reveal";
 import { SAME_AS } from "@/lib/seo";
 
@@ -136,6 +137,7 @@ function Index() {
         <Hero />
         <div className="surface-light">
           <Advantages />
+          <RateTracker />
           <HowItWorks />
           <SwiftBanner />
           <Corridor />
