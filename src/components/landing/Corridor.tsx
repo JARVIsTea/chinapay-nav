@@ -26,7 +26,7 @@ const steps = [
 
 export function Corridor() {
   return (
-    <section className="relative overflow-hidden py-14 lg:py-20" style={{ background: "#000" }}>
+    <section className="relative overflow-hidden py-14 lg:py-20" style={{ background: "var(--background)" }}>
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
