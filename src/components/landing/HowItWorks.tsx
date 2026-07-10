@@ -11,7 +11,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how" className="relative overflow-hidden py-24 text-white lg:py-32" style={{ background: "#000" }}>
+    <section id="how" className="relative overflow-hidden py-24 text-white lg:py-32" style={{ background: "var(--background)" }}>
       <div className="pointer-events-none absolute inset-0 grid-bg opacity-50" />
       <div className="pointer-events-none absolute -left-40 top-1/3 h-[420px] w-[420px] rounded-full bg-(--color-emerald)/20 blur-[120px]" />
       <div className="pointer-events-none absolute -right-32 bottom-0 h-[380px] w-[380px] rounded-full bg-(--color-navy-soft)/40 blur-[120px]" />
