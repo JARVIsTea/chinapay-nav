@@ -134,16 +134,18 @@ function Index() {
       <div className="h-[84px]" />
       <main>
         <Hero />
-        <Advantages />
-        <HowItWorks />
-        <SwiftBanner />
-        <Corridor />
-        <Acceptance />
-        <Cases />
-        <Services />
-        <TrustBlock />
-        <Faq />
-        <LeadForm />
+        <div className="surface-light">
+          <Advantages />
+          <HowItWorks />
+          <SwiftBanner />
+          <Corridor />
+          <Acceptance />
+          <Cases />
+          <Services />
+          <TrustBlock />
+          <Faq />
+          <LeadForm />
+        </div>
       </main>
       <Footer />
     </div>
