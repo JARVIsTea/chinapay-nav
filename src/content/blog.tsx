@@ -2103,6 +2103,9 @@ export const BLOG_POSTS: BlogPost[] = [
   },
 ];
 
+import { GENERATED_POSTS } from "./blog-generated";
+BLOG_POSTS.push(...GENERATED_POSTS);
+
 export function getPost(slug: string): BlogPost | undefined {
   return BLOG_POSTS.find((p) => p.slug === slug);
 }
