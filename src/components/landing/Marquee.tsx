@@ -1,17 +1,16 @@
 "use client";
 import { motion, useReducedMotion } from "motion/react";
-import { Ship, Banknote, FileCheck2, ShieldCheck, Clock, Globe2, TrendingUp, Smartphone, MessageCircle } from "lucide-react";
 
 const items = [
-  { icon: Banknote, text: "Курс ¥ → ₽: 11.25 + 0.5%" },
-  { icon: Clock, text: "Зачисление 1–2 рабочих дня" },
-  { icon: Smartphone, text: "Alipay и WeChat Pay — от 1000 CNY за 15 минут" },
-  { icon: Globe2, text: "SWIFT-переводы от 0.6% — юр. и физ. лица" },
-  { icon: Ship, text: "CNY · USD · AED · HKD" },
-  { icon: FileCheck2, text: "Полный пакет документов" },
-  { icon: ShieldCheck, text: "Валютный контроль под ключ" },
-  { icon: Globe2, text: "Поставщики по всему Китаю" },
-  { icon: TrendingUp, text: "Сделки от 100 000 ₽" },
+  { emoji: "💴", text: "Курс ¥ → ₽: 11.25 + 0.5%" },
+  { emoji: "⚡", text: "Зачисление 1–2 рабочих дня" },
+  { emoji: "📱", text: "Alipay и WeChat Pay — от 1000 CNY за 15 минут" },
+  { emoji: "🌐", text: "SWIFT-переводы от 0.6% — юр. и физ. лица" },
+  { emoji: "🚢", text: "CNY · USD · AED · HKD" },
+  { emoji: "📄", text: "Полный пакет документов" },
+  { emoji: "🛡️", text: "Валютный контроль под ключ" },
+  { emoji: "🇨🇳", text: "Поставщики по всему Китаю" },
+  { emoji: "📈", text: "Сделки от 100 000 ₽" },
 ];
 
 export function Marquee() {
@@ -34,12 +33,21 @@ export function Marquee() {
         transition={{ duration: 38, ease: "linear", repeat: Infinity }}
         whileHover={reduce ? undefined : { transition: { duration: 120 } }}
       >
-        {row.map(({ icon: Icon, text }, i) => (
+        {row.map(({ emoji, text }, i) => (
           <div
             key={i}
-            className="flex shrink-0 items-center gap-2 text-[12px] font-medium tracking-wide text-white/75"
+            className="flex shrink-0 items-center gap-2 text-[12px] font-medium tracking-wide text-white/85"
           >
-            <Icon className="h-3.5 w-3.5 text-(--color-emerald)" />
+            <span
+              aria-hidden
+              className="text-base leading-none"
+              style={{
+                fontFamily:
+                  '"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Twemoji Mozilla",sans-serif',
+              }}
+            >
+              {emoji}
+            </span>
             <span>{text}</span>
             <span className="text-white/20">·</span>
           </div>
